@@ -35,7 +35,6 @@ const Slider = () => {
 
   return (
     <div className="relative w-full h-[60vh] sm:h-screen overflow-hidden">
-      {/* Slides Container */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -47,7 +46,7 @@ const Slider = () => {
               alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover"
             />
-            {/* Overlay Content */}
+
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center">
               <h2 className="text-3xl sm:text-5xl font-bold mb-4">
                 Welcome to Our Charity
@@ -68,7 +67,6 @@ const Slider = () => {
         ))}
       </div>
 
-      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 transition"
@@ -82,7 +80,6 @@ const Slider = () => {
         ❯
       </button>
 
-      {/* Pagination Dots */}
       <div className="absolute bottom-5 w-full flex justify-center space-x-2">
         {images.map((_, index) => (
           <button

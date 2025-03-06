@@ -1,0 +1,41 @@
+import React from "react";
+import heroImage from "../../assets/images/hero.jpg";
+
+const Hero = () => {
+  return (
+    <section
+      className="relative bg-gray-900 text-white min-h-screen flex items-center justify-center text-center px-4 sm:px-6 md:px-12 lg:px-20 bg-cover bg-center"
+      style={{ backgroundImage: `url(${heroImage})` }}
+    >
+      <div className="absolute inset-0 bg-black opacity-60"></div>
+
+      <div className="relative max-w-4xl mx-auto z-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+          Empower Lives, Spread Hope
+        </h1>
+        <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-300">
+          Ma Sidhashweri Charity and Trust is dedicated to helping those in need
+          through crowdfunding and community support. Your small contribution
+          can bring a big change.
+        </p>
+
+        <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/donate"
+            className="bg-yellow-500 hover:bg-orange-600 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300 text-sm sm:text-base"
+          >
+            Donate Now
+          </a>
+          <a
+            href="/fundraiser"
+            className="bg-transparent border border-yellow-500 text-yellow-500 hover:bg-orange-500 hover:text-gray-900 font-semibold px-6 py-3 rounded-lg transition duration-300 text-sm sm:text-base"
+          >
+            Start a Fundraiser
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

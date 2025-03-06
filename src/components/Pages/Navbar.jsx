@@ -20,7 +20,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
 
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-6 font-semibold">
           <Link to="/" className="text-gray-700 hover:text-orange-500">
             Home
           </Link>
