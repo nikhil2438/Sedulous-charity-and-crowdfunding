@@ -47,7 +47,6 @@ const SuccessStories = () => {
           from your generosity.
         </p>
 
-        {/* Success Stories Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {successStories.map((story, index) => (
             <div
@@ -65,7 +64,6 @@ const SuccessStories = () => {
           ))}
         </div>
 
-        {/* Testimonials Section */}
         <div className="mt-12 bg-white py-8 px-6 rounded-lg shadow-md max-w-3xl mx-auto">
           <h3 className="text-2xl font-semibold text-gray-800">
             What Our Donors Say

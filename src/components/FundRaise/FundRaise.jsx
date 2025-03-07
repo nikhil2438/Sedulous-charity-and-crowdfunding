@@ -1,7 +1,7 @@
 import React from "react";
 import educationImage from "../../assets/images/education.jpg";
 import banner7 from "../../assets/images/banner7.jpg";
-import foodImage from "../../assets/images/food.jpg";
+import FoodImage from "../../assets/images/Food.jpg";
 
 const fundraisers = [
   {
@@ -21,7 +21,7 @@ const fundraisers = [
   {
     id: 3,
     title: "Food for the Homeless",
-    image: foodImage,
+    image: FoodImage,
     raised: 5000,
     goal: 12000,
   },
