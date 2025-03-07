@@ -43,7 +43,7 @@ const FeaturedFundraisers = () => {
               <img
                 src={fundraiser.image}
                 alt={fundraiser.title}
-                className="w-full h-56 sm:h-48 object-cover rounded-md"
+                className="w-full h-56 sm:h-48 object-cover rounded-md  transform transition-transform duration-300 hover:scale-105"
               />
               <h3 className="text-lg font-semibold mt-4">{fundraiser.title}</h3>
               <div className="relative w-full bg-gray-200 h-3 rounded-full mt-3">

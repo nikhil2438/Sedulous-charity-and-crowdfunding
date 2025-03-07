@@ -23,9 +23,11 @@ const CategorySection = () => {
           {categories.map((category, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center w-full h-44 sm:h-48 bg-gradient-to-r from-red-500 to-orange-400 text-white rounded-xl shadow-xl p-4 sm:p-6"
+              className="flex flex-col items-center justify-center w-full h-44 sm:h-48 bg-gradient-to-r from-red-500 to-orange-400 text-white rounded-xl shadow-xl p-4 sm:p-6  transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
-              <span className="text-3xl sm:text-4xl">{category.icon}</span>
+              <span className="text-3xl sm:text-4xl  transition-transform duration-300 hover:scale-140">
+                {category.icon}
+              </span>
               <h3 className="mt-2 text-sm sm:text-lg font-semibold">
                 {category.name}
               </h3>
