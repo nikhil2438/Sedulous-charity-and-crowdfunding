@@ -9,7 +9,6 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
         <Link to="/">
           <img
             src={logo}
@@ -17,8 +16,6 @@ const Navbar = () => {
             className=" object-contain"
           />
         </Link>
-
-        {/* Desktop Menu */}
 
         <div className="hidden md:flex space-x-6 font-semibold">
           <Link to="/" className="text-gray-700 hover:text-orange-500">
