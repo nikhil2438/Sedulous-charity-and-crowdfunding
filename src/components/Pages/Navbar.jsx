@@ -34,13 +34,13 @@ const Navbar = () => {
             Gallery
           </Link>
         </div>
-
-        <Link
+        <button
+          onClick={() => navigate("/donate")}
           to="/donate"
           className="hidden md:block px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition"
         >
           Donate
-        </Link>
+        </button>
 
         <button
           className="md:hidden text-gray-700"

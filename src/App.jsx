@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Pages/Gallery";
 import Media from "./components/Pages/Media";
 import Project from "./components/Pages/Project";
+import Donate from "./components/Payment/Donate";
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/media" element={<Media />} />
         <Route path="/project" element={<Project />} />
+        <Route path="/donate" element={<Donate />} />
       </Routes>
       <Footer />
     </div>
