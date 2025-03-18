@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Donate = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handlePayment = async () => {
     const options = {
-      key: "YOUR_RAZORPAY_KEY",
+      key: "rzp_test_5AaBBccDD123XX",
       amount: 50000,
       currency: "INR",
       name: "MA SIDISHWARI Charity",
       description: "Donation Payment",
-      image: "../../assets/images/logo.jpg",
+      image: "https://via.placeholder.com/150",
       handler: function (response) {
         alert(
           "Payment successful! Payment ID: " + response.razorpay_payment_id

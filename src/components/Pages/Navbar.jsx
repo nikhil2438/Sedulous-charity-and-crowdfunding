@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/images/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -36,7 +36,6 @@ const Navbar = () => {
         </div>
         <button
           onClick={() => navigate("/donate")}
-          to="/donate"
           className="hidden md:block px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition"
         >
           Donate
