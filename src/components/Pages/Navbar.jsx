@@ -13,7 +13,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="MA SIDISHWARI Logo"
-            className=" object-contain"
+            className=" object-contain h-20 w-20"
           />
         </Link>
 
