@@ -1,5 +1,6 @@
 import React from "react";
 import heroImage from "../../assets/images/hero.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -20,18 +21,18 @@ const Hero = () => {
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/donate"
+          <Link
+            to="/donationForm"
             className="bg-yellow-500 hover:bg-orange-600 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300 text-sm sm:text-base"
           >
             Donate Now
-          </a>
-          <a
-            href="/fundraiser"
+          </Link>
+          <Link
+            to="/fundraiser"
             className="bg-transparent border border-yellow-500 text-yellow-500 hover:bg-orange-500 hover:text-gray-900 font-semibold px-6 py-3 rounded-lg transition duration-300 text-sm sm:text-base"
           >
             Start a Fundraiser
-          </a>
+          </Link>
         </div>
       </div>
     </section>

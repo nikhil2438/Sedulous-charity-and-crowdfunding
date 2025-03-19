@@ -2,6 +2,7 @@ import React from "react";
 import educationImage from "../../assets/images/education.jpg";
 import banner7 from "../../assets/images/banner7.jpg";
 import FoodImage from "../../assets/images/Food.jpg";
+import { Link } from "react-router-dom";
 
 const fundraisers = [
   {
@@ -58,9 +59,11 @@ const FeaturedFundraisers = () => {
                 Raised: <span className="font-bold">${fundraiser.raised}</span>{" "}
                 / {fundraiser.goal}
               </p>
-              <button className="mt-4 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">
-                Donate Now
-              </button>
+              <Link to="/donationForm">
+                <button className="mt-4 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">
+                  Donate Now
+                </button>
+              </Link>
             </div>
           ))}
         </div>

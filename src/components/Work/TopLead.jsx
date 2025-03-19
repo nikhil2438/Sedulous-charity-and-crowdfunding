@@ -58,7 +58,10 @@ const Leaderboard = () => {
 
         <p className="mt-6 text-gray-700 text-lg">
           Want to see your name on the leaderboard?{" "}
-          <a href="/donate" className="text-red-600 font-semibold underline">
+          <a
+            href="/donationForm"
+            className="text-red-600 font-semibold underline"
+          >
             Donate Now
           </a>{" "}
           and make an impact!
