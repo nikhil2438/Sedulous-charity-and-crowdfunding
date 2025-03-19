@@ -5,6 +5,7 @@ import banner3 from "../../assets/images/banner3.jpg";
 import banner4 from "../../assets/images/banner4.jpg";
 import banner5 from "../../assets/images/banner5.jpg";
 import banner7 from "../../assets/images/banner7.jpg";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,9 +59,11 @@ const Slider = () => {
                 <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-700 transition">
                   Read More
                 </button>
-                <button className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-800 transition">
-                  Donate Now
-                </button>
+                <Link to="/donationForm">
+                  <button className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-800 transition">
+                    Donate Now
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

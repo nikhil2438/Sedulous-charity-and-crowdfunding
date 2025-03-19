@@ -35,7 +35,7 @@ const Navbar = () => {
           </Link>
         </div>
         <button
-          onClick={() => navigate("/donate")}
+          onClick={() => navigate("/donationForm")}
           className="hidden md:block px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition"
         >
           Donate
@@ -82,7 +82,7 @@ const Navbar = () => {
             Gallery
           </Link>
           <Link
-            to="/donate"
+            to="/donationForm"
             className="block px-6 py-3  bg-orange-500 text-white text-center"
           >
             Donate
