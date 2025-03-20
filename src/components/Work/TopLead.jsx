@@ -1,5 +1,6 @@
 import React from "react";
 import { FaMedal, FaCrown, FaTrophy } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const topDonors = [
   { name: "Rahul Mehta", amount: 5000, anonymous: false },
@@ -10,6 +11,7 @@ const topDonors = [
 ];
 
 const Leaderboard = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -58,12 +60,12 @@ const Leaderboard = () => {
 
         <p className="mt-6 text-gray-700 text-lg">
           Want to see your name on the leaderboard?{" "}
-          <a
-            href="/donationForm"
+          <button
+            onClick={() => navigate("/donationform")}
             className="text-red-600 font-semibold underline"
           >
             Donate Now
-          </a>{" "}
+          </button>{" "}
           and make an impact!
         </p>
       </div>
