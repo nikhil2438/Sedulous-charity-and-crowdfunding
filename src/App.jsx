@@ -5,7 +5,7 @@ import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
 import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Pages/Gallery";
-import Media from "./components/Pages/Media";
+import Events from "./components/Pages/Events";
 import Projects from "./components/Pages/Project";
 
 import DonationForm from "./components/DonationForm/DonationForm";
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/media" element={<Media />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/projects" element={<Projects />} />
 
         <Route path="/donationform" element={<DonationForm />} />

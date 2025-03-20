@@ -27,8 +27,8 @@ const Navbar = () => {
           <Link to="/projects" className="text-gray-700 hover:text-orange-500">
             Projects
           </Link>
-          <Link to="/media" className="text-gray-700 hover:text-orange-500">
-            Media
+          <Link to="/Events" className="text-gray-700 hover:text-orange-500">
+            Events
           </Link>
           <Link to="/gallery" className="text-gray-700 hover:text-orange-500">
             Gallery
@@ -70,10 +70,10 @@ const Navbar = () => {
             Projects
           </Link>
           <Link
-            to="/media"
+            to="/events"
             className="block px-6 py-3 text-orange-700 hover:bg-orange-100"
           >
-            Media
+            Events
           </Link>
           <Link
             to="/gallery"
