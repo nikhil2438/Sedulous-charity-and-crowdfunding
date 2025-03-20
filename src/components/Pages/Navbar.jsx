@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "../../assets/images/logo.jpg";
+import Logo from "../../assets/images/Logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,26 +11,26 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link to="/">
           <img
-            src={logo}
+            src={Logo}
             alt="MA SIDISHWARI Logo"
-            className=" object-contain h-20 w-20"
+            className=" object-contain h-48 w-48"
           />
         </Link>
 
-        <div className="hidden md:flex space-x-6 font-semibold">
-          <Link to="/" className="text-gray-700 hover:text-orange-500">
+        <div className="hidden md:flex space-x-8 font-semibold uppercase tracking-wide ">
+          <Link to="/" className="text-gray-700 hover:text-orange-500 transition">
             Home
           </Link>
-          <Link to="/about" className="text-gray-700 hover:text-orange-500">
+          <Link to="/about" className="text-gray-700 hover:text-orange-500  transition ">
             About Us
           </Link>
-          <Link to="/projects" className="text-gray-700 hover:text-orange-500">
+          <Link to="/projects" className="text-gray-700 hover:text-orange-500  transition">
             Projects
           </Link>
-          <Link to="/Events" className="text-gray-700 hover:text-orange-500">
+          <Link to="/Events" className="text-gray-700 hover:text-orange-500  transition">
             Events
           </Link>
-          <Link to="/gallery" className="text-gray-700 hover:text-orange-500">
+          <Link to="/gallery" className="text-gray-700 hover:text-orange-500  transition">
             Gallery
           </Link>
         </div>
@@ -50,40 +50,40 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-white border-t  shadow-lg">
           <Link
             to="/"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100"
+            className="block px-6 py-3 text-orange-700 hover:bg-orange-100  transition"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100"
+            className="block px-6 py-3 text-orange-700 hover:bg-orange-100  transition"
           >
             About Us
           </Link>
           <Link
             to="/projects"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100"
+            className="block px-6 py-3 text-orange-700 hover:bg-orange-100   transition"
           >
             Projects
           </Link>
           <Link
             to="/events"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100"
+            className="block px-6 py-3 text-orange-700 hover:bg-orange-100   transition"
           >
             Events
           </Link>
           <Link
             to="/gallery"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100"
+            className="block px-6 py-3 text-orange-700 hover:bg-orange-100   transition"
           >
             Gallery
           </Link>
           <Link
             to="/donationForm"
-            className="block px-6 py-3  bg-orange-500 text-white text-center"
+            className="block px-6 py-3  bg-orange-500 text-white text-center  rounded-b-lg"
           >
             Donate
           </Link>
