@@ -1,10 +1,10 @@
 import React from "react";
+
 import festival1 from "../../assets/images/festival1.png";
 import festival2 from "../../assets/images/festival2.png";
+import Video from "../../components/Pages/Video";
 
-import Videos from "./Video";
-
-const Events = () => {
+const Event = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-yellow-100 p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row-reverse items-center mb-10 w-full max-w-4xl">
@@ -57,9 +57,9 @@ const Events = () => {
           </p>
         </div>
       </div>
-      <Videos />
+      {<Video />}
     </div>
   );
 };
 
-export default Events;
+export default Event;
