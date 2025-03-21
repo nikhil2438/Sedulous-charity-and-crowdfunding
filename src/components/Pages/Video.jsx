@@ -1,6 +1,6 @@
 import React from "react";
 
-const Videos = () => {
+const Video = () => {
   const videos = [
     "https://drive.google.com/file/d/1lUDvcRvQ3HmjhQN-FmNzFSI4QVEEJgvc/preview",
     "https://drive.google.com/file/d/18eXmuqh8ie9q81MNM7pDMpFUd1Oc4xsS/preview",
@@ -30,4 +30,4 @@ const Videos = () => {
   );
 };
 
-export default Videos;
+export default Video;

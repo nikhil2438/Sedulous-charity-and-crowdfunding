@@ -19,7 +19,6 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/events" element={<Events />} />
         <Route path="/projects" element={<Projects />} />
-
         <Route path="/donationform" element={<DonationForm />} />
       </Routes>
       <Footer />

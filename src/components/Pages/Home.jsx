@@ -19,7 +19,7 @@ const Home = () => {
       <Story />
       <TopLead />
       <Volunter />
-      <Event />
+
       <p className="text-center text-lg mt-2">
         Together, we can make a difference.
       </p>

@@ -1,120 +1,68 @@
-import React, { useState, useEffect } from "react";
+import festival1 from "../../assets/images/festival1.png";
+import festival2 from "../../assets/images/festival2.png";
+import Video from "../../components/Pages/Video";
 
-const BonusFeatures = () => {
-  const [donationAmount, setDonationAmount] = useState(12500);
-  const [donors, setDonors] = useState(320);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDonationAmount((prev) => prev + Math.floor(Math.random() * 100));
-      setDonors((prev) => prev + 1);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const events = [
-    { date: "Mar 15, 2025", title: "Charity Run for Education" },
-    { date: "Apr 02, 2025", title: "Food Drive for Homeless" },
-    { date: "Apr 20, 2025", title: "Medical Aid Camp" },
-  ];
-
-  const [userInput, setUserInput] = useState("");
-  const [suggestion, setSuggestion] = useState("");
-
-  const handleGenerateIdea = () => {
-    const ideas = [
-      "Host a virtual fundraiser event.",
-      "Organize a community charity walk.",
-      "Create an online donation challenge.",
-      "Start a social media fundraiser campaign.",
-      "Partner with local businesses for charity drives.",
-    ];
-    setSuggestion(ideas[Math.floor(Math.random() * ideas.length)]);
-  };
-
+const Events = () => {
   return (
-    <section className="py-16 bg-gray-100 flex justify-center">
-      <div className="max-w-6xl w-full bg-white p-8 rounded-xl shadow-lg">
-        <h2 className="text-4xl font-bold text-red-600 text-center mb-8">
-          🔥 Events and upcoming events
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-500 transition-transform transform hover:scale-105">
-              <h3 className="text-2xl font-semibold text-gray-800">
-                Live Donation Tracker
-              </h3>
-              <p className="text-lg mt-2">
-                💰 Total Raised:{" "}
-                <span className="font-bold text-green-600">
-                  ${donationAmount}
-                </span>
+    <>
+      <div>
+        <div className="min-h-screen flex flex-col items-center mt-20 justify-center bg-yellow-50 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row-reverse items-center mb-10 w-full max-w-4xl">
+            <img
+              src={festival1}
+              alt="लभुआनी महोत्सव Logo"
+              className=" w-full max-w-[800px] h-auto sm:w-[600px] sm:h-[500px] object-contain sm:ml-6"
+            />
+            <div className="text-center sm:text-left">
+              <h1 className="text-3xl sm:text-4xl font-bold text-red-600 mt-4">
+                शोभायात्रा
+              </h1>
+              <p className="text-base sm:text-lg text-gray-700 mt-2">
+                "April 28 to May 3, 2025"
               </p>
-              <p className="text-lg">
-                👥 Total Donors: <span className="font-bold">{donors}</span>
+              <p className="text-gray-700 mt-4 text-base sm:text-lg ">
+                "Be a part of the grand Shobha Yatra and experience our culture
+                and spirituality. This procession vividly showcases our glorious
+                history, religious faith, and folk traditions. Magnificent
+                tableaux, the melodious sound of traditional musical
+                instruments, and the enthusiasm of devotees make it even more
+                special. Come, join this divine event and immerse yourself in
+                devotion, dedication, and celebration!"
               </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 transition-transform transform hover:scale-105">
-              <h3 className="text-2xl font-semibold text-gray-800">
-                🤖 AI-Powered Fundraising Assistant
-              </h3>
-              <p className="text-lg mt-2">
-                Need ideas for your fundraiser? Get a suggestion instantly!
-              </p>
-              <input
-                type="text"
-                placeholder="Describe your cause..."
-                className="w-full mt-4 p-3 border rounded-lg"
-                value={userInput}
-                onChange={(e) => setUserInput(e.target.value)}
-              />
-              <button
-                onClick={handleGenerateIdea}
-                className="mt-4 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
-              >
-                Get Fundraising Idea
-              </button>
-              {suggestion && (
-                <p className="mt-4 text-lg font-semibold text-gray-700">
-                  🎯 Suggestion: {suggestion}
-                </p>
-              )}
             </div>
           </div>
 
-          <div className="space-y-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-red-500 transition-transform transform hover:scale-105">
-              <h3 className="text-2xl font-semibold text-gray-800">
-                📅 Upcoming Charity Events
-              </h3>
-              <ul className="mt-4 space-y-2">
-                {events.map((event, index) => (
-                  <li key={index} className="text-lg">
-                    📍 <span className="font-bold">{event.date}</span> -{" "}
-                    {event.title}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-xl shadow-lg text-center transition-transform transform hover:scale-105">
-              <h3 className="text-2xl font-semibold">
-                Ready to Make a Difference? 🌍
-              </h3>
-              <p className="mt-2 text-lg">
-                Join our community and start your fundraiser today!
+          {/* Shobha Yatra Section */}
+          <div className="flex flex-col sm:flex-row items-center w-full max-w-4xl">
+            <img
+              src={festival2}
+              alt="शोभायात्रा Logo"
+              className=" w-full max-w-[700px] h-auto sm:w-[500px] sm:h-[500px] object-contain sm:ml-6"
+            />
+            <div className="text-center sm:text-left">
+              <h1 className="text-3xl sm:text-4xl font-bold text-red-600 mt-4">
+                लभुआनी महोत्सव
+              </h1>
+              <p className="text-base sm:text-lg text-gray-700 mt-2">
+                "April 27, 2025"
               </p>
-              <button className="mt-4 bg-white text-red-600 font-bold px-6 py-2 rounded-lg hover:bg-red-200 transition">
-                Start Fundraising
-              </button>
+
+              <p className="text-gray-700 mt-4 text-base sm:text-lg ">
+                "This festival is a confluence of tradition, art, and culture.
+                Here, you will experience the uniqueness of traditional folk
+                dance, music, drama, and handicrafts. This festival brings our
+                rich heritage to life and provides a golden opportunity for the
+                new generation to connect with its roots. Join us in this
+                magnificent celebration and immerse yourself in the grandeur of
+                folk culture!"
+              </p>
             </div>
           </div>
+          {<Video />}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
-export default BonusFeatures;
+export default Events;
