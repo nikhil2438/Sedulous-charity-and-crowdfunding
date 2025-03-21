@@ -40,12 +40,6 @@ const Navbar = () => {
         >
           Donate
         </button>
-        {/* <button
-          onClick={() => navigate("")}
-          className="hidden md:block px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition"
-        >
-          Login
-        </button> */}
 
         <button
           className="md:hidden text-gray-700"
