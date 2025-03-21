@@ -6,7 +6,7 @@ import Videos from "./Video";
 
 const Events = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-yellow-100 p-4 sm:p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-yellow-200 p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row-reverse items-center mb-10 w-full max-w-4xl">
         <img
           src={festival1}
