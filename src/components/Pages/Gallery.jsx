@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
 
-// Import images
+
 import abc from "../../assets/images/abc.jpg";
 import abc1 from "../../assets/images/abc1.jpg";
 import abc2 from "../../assets/images/abc2.jpg";
@@ -29,13 +29,13 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-slide images every 3 seconds
+  
   useEffect(() => {
     if (selectedImage) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setSelectedImage(images[(currentIndex + 1) % images.length]); // Move to next image
-      }, 3000); // Change image every 3 seconds
+        setSelectedImage(images[(currentIndex + 1) % images.length]); 
+      }, 3000); 
 
       return () => clearInterval(interval);
     }
@@ -47,7 +47,7 @@ const Gallery = () => {
         Temple Gallery
       </h1>
 
-      {/* Responsive Grid */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {images.map((image, index) => (
           <motion.div
@@ -70,7 +70,7 @@ const Gallery = () => {
         ))}
       </div>
 
-      {/* Dialog (Modal for Full Image View) */}
+      
       <Dialog.Root open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4">
@@ -82,7 +82,7 @@ const Gallery = () => {
                 Click outside or press Esc to close
               </Dialog.Description>
 
-              {/* Animated Image Slideshow */}
+              
               <motion.img
                 key={selectedImage?.src}
                 src={selectedImage?.src}
@@ -94,7 +94,7 @@ const Gallery = () => {
                 transition={{ duration: 0.8 }}
               />
 
-              {/* Navigation Buttons */}
+              
               <div className="flex justify-between mt-4 space-x-2">
                 <button
                   className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md text-sm md:text-base flex-1"
