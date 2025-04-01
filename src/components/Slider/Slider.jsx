@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import page from "../../assets/images/page.png";
-import banner2 from "../../assets/images/banner2.jpg";
+
 import banner3 from "../../assets/images/banner3.jpg";
 import banner4 from "../../assets/images/banner4.jpg";
 import banner5 from "../../assets/images/banner5.jpg";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [page, banner2, banner3, banner4, banner5, banner7];
+  const images = [page, banner3, banner4, banner5, banner7];
 
   console.log("Images:", images);
 
