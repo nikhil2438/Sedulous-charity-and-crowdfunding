@@ -7,7 +7,6 @@ import Work from "../Work/Work";
 import Story from "../Work/Story";
 import TopLead from "../Work/TopLead";
 import Volunter from "../Work/Volunter";
-
 const Home = () => {
   return (
     <div>
