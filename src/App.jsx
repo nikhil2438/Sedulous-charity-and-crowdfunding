@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
 import Projects from "./components/Pages/Project";
-
+import Payment from "./components/Payment/Payment";
 import DonationForm from "./components/DonationForm/DonationForm";
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/donationform" element={<DonationForm />} />
+        <Route path="/payment" element ={<Payment/>} />
       </Routes>
       <Footer />
     </div>
