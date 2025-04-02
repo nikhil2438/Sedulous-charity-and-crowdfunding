@@ -22,8 +22,16 @@ const Navbar = () => {
             to="/"
             className="text-gray-700 hover:text-orange-500 transition"
           >
+          <Link
+            to="/"
+            className="text-gray-700 hover:text-orange-500 transition"
+          >
             Home
           </Link>
+          <Link
+            to="/about"
+            className="text-gray-700 hover:text-orange-500  transition "
+          >
           <Link
             to="/about"
             className="text-gray-700 hover:text-orange-500  transition "
@@ -34,8 +42,16 @@ const Navbar = () => {
             to="/projects"
             className="text-gray-700 hover:text-orange-500  transition"
           >
+          <Link
+            to="/projects"
+            className="text-gray-700 hover:text-orange-500  transition"
+          >
             Projects
           </Link>
+          <Link
+            to="/Events"
+            className="text-gray-700 hover:text-orange-500  transition"
+          >
           <Link
             to="/Events"
             className="text-gray-700 hover:text-orange-500  transition"
@@ -46,13 +62,19 @@ const Navbar = () => {
             to="/gallery"
             className="text-gray-700 hover:text-orange-500  transition"
           >
+          <Link
+            to="/gallery"
+            className="text-gray-700 hover:text-orange-500  transition"
+          >
             Gallery
           </Link>
         </div>
         <button
           onClick={() => navigate("/register")}
+          onClick={() => navigate("/register")}
           className="hidden md:block px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition"
         >
+          Sign In
           Sign In
         </button>
 
@@ -98,6 +120,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/register"
+            to="/register"
             className="block px-6 py-3  bg-orange-500 text-white text-center  rounded-b-lg"
           >
             Donate
@@ -105,7 +128,6 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-    
   );
 };
 

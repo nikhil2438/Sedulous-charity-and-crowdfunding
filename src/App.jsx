@@ -15,8 +15,6 @@ import Login from "./components/LoginRegister/Login";
 
 >>>>>>> f184ceb (changes)
 import DonationForm from "./components/DonationForm/DonationForm";
-import Rtgs from "./components/Payment/Rtgs";
-import Partner from "./components/Work/Partnerpage";
 function App() {
   return (
     <div>
