@@ -2,6 +2,7 @@ import React from "react";
 import banner2 from "../../assets/images/banner2.jpg";
 import festival1 from "../../assets/images/festival1.png";
 import festival2 from "../../assets/images/festival2.png";
+import Video from "../../components/Pages/Video";
 
 const Event = () => {
   return (
