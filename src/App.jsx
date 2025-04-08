@@ -7,8 +7,6 @@ import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
 import Projects from "./components/Pages/Project";
-import Payment from "./components/Pages/Payment";
-import Pay from "./components/Pages/Pay";
 
 import DonationForm from "./components/DonationForm/DonationForm";
 function App() {
@@ -22,8 +20,6 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/donationform" element={<DonationForm />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/pay" element={<Pay />} />
       </Routes>
       <Footer />
     </div>
