@@ -2,8 +2,6 @@ import React from "react";
 import banner2 from "../../assets/images/banner2.jpg";
 import banner3 from "../../assets/images/banner3.jpg";
 import Banner7 from "../../assets/images/banner4.jpg";
-import Banner5 from "../../assets/images/banner5.jpg";
-import Payment from "../../components/Pages/Payment";
 
 const Pay = () => {
   return (
@@ -24,9 +22,7 @@ const Pay = () => {
           Ben Carson
         </p>
       </div>
-      <>
-        <Payment />
-      </>
+
       <div className="flex">
         <div className="h-screen overflow-y-auto hide-scrollbar p-4  w-1/2">
           <img src={banner3} alt="Banner" className="h-auto w-full mt-10" />
@@ -42,7 +38,7 @@ const Pay = () => {
             lives of all who seek solace.
           </h1>
 
-          <img src={Banner5} alt="Banner" className="h-auto w-full mt-10" />
+          <img src={banner2} alt="Banner" className="h-auto w-full mt-10" />
           <h1 className="text-left mt-3 text-base leading-relaxed">
             As a trustee of our temple trust fund, I am honored to serve and
             uphold our sacred mission of preserving our temple’s heritage and
@@ -68,7 +64,7 @@ const Pay = () => {
             lives of all who seek solace.
           </h1>
 
-          <img src={Banner5} alt="Banner" className="h-auto w-full mt-10" />
+          <img src={banner2} alt="Banner" className="h-auto w-full mt-10" />
           <h1 className="text-left mt-3 text-base leading-relaxed">
             As a trustee of our temple trust fund, I am honored to serve and
             uphold our sacred mission of preserving our temple’s heritage and

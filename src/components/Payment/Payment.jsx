@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 const Payment = () => {
@@ -8,7 +7,7 @@ const Payment = () => {
 
   const handlePayment = async () => {
     if (!amount || isNaN(amount) || amount <= 0) {
-      setPaymentStatus("⚠️ Please enter a valid amount");
+      setPaymentStatus(" Please enter a valid amount");
       return;
     }
 
@@ -33,7 +32,7 @@ const Payment = () => {
       });
 
       const orderData = await orderResponse.json();
-      console.log("✅ New Order Data:", orderData);
+      console.log("New Order Data:", orderData);
 
       if (!orderData.orderId) {
         throw new Error("Order creation failed");
@@ -50,8 +49,6 @@ const Payment = () => {
         handler: async (response) => {
           console.log("✅ Payment Response:", response);
 
-          
-          
           const validationResponse = await fetch(
             "http://localhost:5000/new-order/validate",
             {
@@ -68,12 +65,12 @@ const Payment = () => {
           );
 
           const validationData = await validationResponse.json();
-          console.log("✅ Validation Response:", validationData);
+          console.log(" Validation Response:", validationData);
 
           if (validationData.status === "success") {
-            setPaymentStatus("✅ Payment Successful! Thank you!");
+            setPaymentStatus(" Payment Successful! Thank you!");
           } else {
-            setPaymentStatus("❌ Payment Verification Failed!");
+            setPaymentStatus(" Payment Verification Failed!");
           }
         },
         prefill: {
@@ -89,8 +86,8 @@ const Payment = () => {
       const rzp = new window.Razorpay(options);
       rzp.open();
     } catch (error) {
-      console.error("❌ Payment Error:", error);
-      setPaymentStatus("❌ Payment Failed! Try again.");
+      console.error(" Payment Error:", error);
+      setPaymentStatus(" Payment Failed! Try again.");
     } finally {
       setLoading(false);
     }
@@ -98,7 +95,9 @@ const Payment = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h2 className="text-2xl font-semibold mb-4">Support Us with a Donation</h2>
+      <h2 className="text-2xl font-semibold mb-4">
+        Support Us with a Donation
+      </h2>
 
       {/* Dynamic Amount Input */}
       <input
@@ -118,7 +117,9 @@ const Payment = () => {
       </button>
 
       {paymentStatus && (
-        <p className="mt-4 text-lg font-semibold text-gray-700">{paymentStatus}</p>
+        <p className="mt-4 text-lg font-semibold text-gray-700">
+          {paymentStatus}
+        </p>
       )}
     </div>
   );
