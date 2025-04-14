@@ -10,7 +10,7 @@ import Projects from "./components/Pages/Project";
 import Payment from "./components/Payment/Payment";
 
 import DonationForm from "./components/DonationForm/DonationForm";
-import Pay from "./components/Pages/Pay";
+import Rtgs from "./components/Payment/Rtgs";
 function App() {
   return (
     <div>
@@ -22,8 +22,8 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/donationform" element={<DonationForm />} />
-        <Route path="/pay" element={<Pay />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/rtgs" element={<Rtgs />} />
       </Routes>
       <Footer />
     </div>

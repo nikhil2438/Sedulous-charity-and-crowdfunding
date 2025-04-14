@@ -61,7 +61,7 @@ const Gallery = () => {
             className="cursor-pointer"
           >
             <div className="shadow-lg rounded-xl overflow-hidden bg-white">
-              <img src={image.src} alt={image.title} className="w-full h-56 object-cover" />
+              <img src={image.src} alt={image.title} className="w-full h-56 object-contain" />
               <div className="text-center bg-orange-200 p-3">
                 <p className="font-semibold text-orange-800 text-sm md:text-base">{image.title}</p>
               </div>
