@@ -53,8 +53,9 @@ const Payment = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex flex-col items-center p-6 space-y-12">
       <h1 className="text-3xl md:text-4xl font-bold text-center text-orange-500 drop-shadow-sm">
-        Donate to Ma Sidhashweri Charity and Trust
+        Donate to Maa Sidhashweri Charity and Trust
       </h1>
+      <div className="w-24 h-1 bg-orange-500 rounded-full mt-2 animate-pulse shadow-lg"></div>
 
       
       <div className="flex flex-wrap justify-center gap-4 mt-6">
@@ -100,7 +101,7 @@ const Payment = () => {
 
 
     
-      <QRScanner />
+      
     </div>
   );
 };
