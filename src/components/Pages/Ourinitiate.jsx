@@ -6,7 +6,7 @@ import banner5Img from "../../assets/images/banner5.jpg";
 import banner4Img from "../../assets/images/banner4.jpg";
 import FoodImg from "../../assets/images/Food.jpg";
 
-const projects = [
+const ourinitiate = [
   {
     title: "Education for All",
     description:
@@ -48,7 +48,7 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function Ourinitiate() {
   return (
     <section className="py-16 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-8">
@@ -90,4 +90,4 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+};
