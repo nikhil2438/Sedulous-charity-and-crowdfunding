@@ -10,7 +10,6 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
         <Link to="/">
           <img
             src={Logo}
@@ -19,7 +18,6 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 font-semibold tracking-wide items-center">
           <Link
             to="/"
@@ -34,7 +32,6 @@ const Navbar = () => {
             About Us
           </Link>
 
-          {/* Dropdown */}
           <div className="relative group">
             <button className="text-gray-700 font-semibold hover:text-orange-500 transition">
               Our Initiatives
@@ -91,7 +88,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Desktop Donate Button */}
         <button
           onClick={() => navigate("/DonationForm")}
           className="hidden md:block px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition"
@@ -99,7 +95,6 @@ const Navbar = () => {
           Donate
         </button>
 
-        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-gray-700"
           onClick={() => setIsOpen(!isOpen)}
@@ -108,7 +103,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t shadow-lg">
           <Link
@@ -124,7 +118,6 @@ const Navbar = () => {
             About Us
           </Link>
 
-          {/* Our Initiatives Mobile Dropdown */}
           <div className="">
             <p className="block px-6 py-3 text-orange-700 hover:text-orange-500 transition">
               Our Initiatives
