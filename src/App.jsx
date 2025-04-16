@@ -8,6 +8,7 @@ import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
 import Projects from "./components/Pages/Project";
 import Payment from "./components/Payment/Payment";
+
 import DonationForm from "./components/DonationForm/DonationForm";
 import Rtgs from "./components/Payment/Rtgs";
 import Partner from "./components/Work/Partnerpage";
@@ -22,7 +23,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/donationform" element={<DonationForm />} />
-        <Route path="/payment" element ={<Payment/>} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/rtgs" element={<Rtgs />} />
         <Route path = "/partner" element={<Partner/>}/>
       </Routes>
