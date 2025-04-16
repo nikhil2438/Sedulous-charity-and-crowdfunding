@@ -7,11 +7,8 @@ import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
 import Projects from "./components/Pages/Project";
-<<<<<<< HEAD
-import Payment from "./components/Payment/Payment";
-=======
-import Register from "./components/LoginRegister/Register";
-import Login from "./components/LoginRegister/Login";
+import Payment from "./components/Pages/Payment";
+import Pay from "./components/Pages/Pay";
 
 >>>>>>> f184ceb (changes)
 import DonationForm from "./components/DonationForm/DonationForm";
@@ -26,14 +23,8 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/donationform" element={<DonationForm />} />
-<<<<<<< HEAD
-        <Route path="/payment" element ={<Payment/>} />
-        <Route path="/rtgs" element={<Rtgs />} />
-        <Route path = "/partner" element={<Partner/>}/>
-=======
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
->>>>>>> f184ceb (changes)
+
+
       </Routes>
       <Footer />
     </div>
