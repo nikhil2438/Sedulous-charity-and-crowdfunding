@@ -1,88 +1,107 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import FooterImage from "/src/assets/images/Footer1.jpg";
+import Footer1 from "../../assets/images/Footer1.jpg";
+import Logo from "../../assets/images/logo.png";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaYoutube,
+  FaLinkedinIn,
+  FaInstagram,
+  FaPinterestP,
+} from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <footer  className="text-white py-12 px-6 md:px-16 bg-cover bg-center"
-    style={{ backgroundImage: `url(${FooterImage})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
-  >
-      <div className="  bg-opacity-50 py-12 px-6 md:px-16 rounded-lg">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer
+      className="text-white pt-10 pb-4 px-6 md:px-20 bg-cover bg-center"
+      style={{ backgroundImage: `url(${Footer1})` }}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 bg-black/40 p-6 rounded-lg">
+        {/* Logo & About */}
         <div>
-          <h3 className="text-4xl font-bold text-yellow-500 mb-4">About Us</h3>
-          <p className="text-white text-[17px] leading-relaxed">
-            Dedicated to helping those in need through crowdfunding and
-            community support. Your kindness changes lives.
+          <div className="mb-4">
+            <img src={Logo} alt="Trust Logo" className="w-24 h-24" />
+          </div>
+          <p className="text-sm leading-relaxed">
+            कालातीत ज्ञान द्वारा निर्देशित, हमारा मंदिर विश्वास के एक बीकन के
+            रूप में खड़ा है, कनेक्शन को बढ़ावा देता है, और हमारे समुदाय के भीतर
+            विश्वास का पोषण करता है।
           </p>
+          <div className="flex gap-3 mt-4">
+            <FaFacebookF className="bg-white text-blue-600 p-2 w-8 h-8 rounded-full" />
+            <FaTwitter className="bg-white text-blue-400 p-2 w-8 h-8 rounded-full" />
+            <FaYoutube className="bg-white text-red-600 p-2 w-8 h-8 rounded-full" />
+            <FaLinkedinIn className="bg-white text-blue-700 p-2 w-8 h-8 rounded-full" />
+            <FaInstagram className="bg-white text-pink-500 p-2 w-8 h-8 rounded-full" />
+            <FaPinterestP className="bg-white text-red-500 p-2 w-8 h-8 rounded-full" />
+          </div>
         </div>
 
+        {/* Quick Links */}
         <div>
-          <h3 className="text-3xl font-extrabold text-red-500 mb-4">
-            Quick Links
-          </h3>
-          <ul className="text-white space-y-3 text-sm">
-            {["Home", "About", "Donate", "Fundraisers", "Contact"].map(
-              (link, index) => (
-                <li key={index}>
-                  <a
-                    href={`/${link.toLowerCase()}`}
-                    className="hover:text-red-800 transition duration-300"
-                  >
-                    {link}
-                  </a>
-                </li>
-              )
-            )}
+          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul className="space-y-2 text-sm">
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Events</li>
+            <li>Our Initiative</li>
+            <li>Gallery</li>
           </ul>
         </div>
 
+        {/* Policy & Newsletter */}
         <div>
-          <h3 className="text-2xl font-bold text-yellow-500 mb-4">
-            Newsletter
-          </h3>
-          <p className="text-white text-sm mb-3">
-            Subscribe for updates on new fundraisers and impact stories.
-          </p>
-          <div className="flex">
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="px-4 py-2 rounded-l bg-gray-800 text-white border border-gray-700 focus:outline-none w-full"
-            />
-            <button className="bg-yellow-500 text-gray-900 px-5 py-2 rounded-r font-semibold hover:bg-yellow-400 transition duration-300">
-              Subscribe
-            </button>
+          <h3 className="text-lg font-semibold mb-4">Privacy Policy</h3>
+          <ul className="space-y-2 text-sm">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+          </ul>
+          <div className="mt-6">
+            <h3 className="text-lg font-semibold mb-2">
+              Subscribe to our Newsletter
+            </h3>
+            <div className="flex">
+              <input
+                type="email"
+                placeholder="name@email.com"
+                className="px-4 py-3 rounded-l-md bg-white text-black w-full"
+              />
+              <button className="bg-orange-600 px-4 rounded-r-md text-white">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
 
+        {/* Contact Us */}
         <div>
-          <h3 className="text-2xl font-bold text-yellow-500 mb-4">Follow Us</h3>
-          <div className="flex space-x-4">
-            {[
-              { icon: <FaFacebook />, link: "#" },
-              { icon: <FaTwitter />, link: "#" },
-              { icon: <FaInstagram />, link: "#" },
-              { icon: <FaLinkedin />, link: "#" },
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.link}
-                className="text-white hover:text-yellow-400 text-2xl transition duration-300"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-          <p className="text-white text-sm mt-4">
-            📧 support@charitytrust.com
+          <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+          <p className="text-sm">
+            माँ सिद्धेश्वरी चैरिटेबल ट्रस्ट (भारतीय ट्रस्ट अधिनियम, 1882 द्वारा
+            दिल्ली सरकार के तहत पंजीकृत)
           </p>
-          <p className="text-white text-sm">📞 +91 9876543210</p>
+          <p className="text-sm mt-2">
+            <strong>Reg No:</strong> 1592
+          </p>
+          <p className="text-sm">
+            <strong>PAN:</strong> AAITM5890N
+          </p>
+          <p className="text-sm">
+            <strong>TAN:</strong> DELM47247E
+          </p>
+          <p className="text-sm mt-2">
+            बादली शहर, आस्था अस्पताल के पास, <br />
+            दिल्ली, भारत, 110042
+          </p>
         </div>
       </div>
-</div>
-      <div className="text-center text-white text-sm mt-12 border-t text-white pt-6">
-        © {new Date().getFullYear()} Ma Sidhashweri Charity & Trust. All rights
-        reserved.
+
+      <div className="mt-10 border-t border-white/30 pt-4 flex flex-col md:flex-row items-center justify-between text-xs">
+        <p>©2025 Maa Siddheshwari Trust. All Rights Reserved.</p>
+        <p>
+          Developed & Designed By{" "}
+          <span className="font-semibold text-green-200">SearchingYug</span>
+        </p>
       </div>
     </footer>
   );
