@@ -10,15 +10,17 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
         <Link to="/">
           <img
             src={Logo}
             alt="MA SIDISHWARI Logo"
-            className="object-contain h-42 w-42"
+            className="object-contain h-16 w-16"
           />
         </Link>
 
-        <div className="hidden md:flex space-x-8 font-semibold  tracking-wide">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8 font-semibold tracking-wide items-center">
           <Link
             to="/"
             className="text-gray-700 hover:text-orange-500 transition"
@@ -31,12 +33,50 @@ const Navbar = () => {
           >
             About Us
           </Link>
-          <Link
-            to="/ourinitiate"
-            className="text-gray-700 hover:text-orange-500 transition"
-          >
-            Our initiate
-          </Link>
+
+          {/* Dropdown */}
+          <div className="relative group">
+            <button className="text-gray-700 font-semibold hover:text-orange-500 transition">
+              Our Initiatives
+            </button>
+            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-lg z-50 w-56 mt-2">
+              <ul className="text-sm text-gray-700 p-2 space-y-1">
+                <li>
+                  <Link
+                    to="/education"
+                    className="block px-4 py-2 hover:text-orange-500"
+                  >
+                    🎓 Education
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/healthcare"
+                    className="block px-4 py-2 hover:text-orange-500"
+                  >
+                    ❤️ Healthcare
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/food-nutrition"
+                    className="block px-4 py-2 hover:text-orange-500"
+                  >
+                    🍲 Food & Nutrition
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/women-empowerment"
+                    className="block px-4 py-2 hover:text-orange-500"
+                  >
+                    👩 Women Empowerment
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <Link
             to="/events"
             className="text-gray-700 hover:text-orange-500 transition"
@@ -51,6 +91,7 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Desktop Donate Button */}
         <button
           onClick={() => navigate("/DonationForm")}
           className="hidden md:block px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition"
@@ -58,6 +99,7 @@ const Navbar = () => {
           Donate
         </button>
 
+        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-gray-700"
           onClick={() => setIsOpen(!isOpen)}
@@ -66,26 +108,55 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t shadow-lg">
           <Link
             to="/"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100 transition"
+            className="block px-6 py-3 text-orange-700 hover:text-orange-500 transition"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100 transition"
+            className="block px-6 py-3 text-orange-700 hover:text-orange-500 transition"
           >
             About Us
           </Link>
-          <Link
-            to="/ourinitiate"
-            className="block px-6 py-3 text-orange-700 hover:bg-orange-100 transition"
-          >
-            Our initiate
-          </Link>
+
+          {/* Our Initiatives Mobile Dropdown */}
+          <div className="">
+            <p className="block px-6 py-3 text-orange-700 hover:text-orange-500 transition">
+              Our Initiatives
+            </p>
+            <div className="pl-6 space-y-1">
+              <Link
+                to="/education"
+                className="block py-2 text-sm text-gray-700 hover:text-orange-500"
+              >
+                🎓 Education
+              </Link>
+              <Link
+                to="/healthcare"
+                className="block py-2 text-sm text-gray-700 hover:text-orange-500"
+              >
+                ❤️ Healthcare
+              </Link>
+              <Link
+                to="/food-nutrition"
+                className="block py-2 text-sm text-gray-700 hover:text-orange-500"
+              >
+                🍲 Food & Nutrition
+              </Link>
+              <Link
+                to="/women-empowerment"
+                className="block py-2 text-sm text-gray-700 hover:text-orange-500"
+              >
+                👩 Women Empowerment
+              </Link>
+            </div>
+          </div>
+
           <Link
             to="/events"
             className="block px-6 py-3 text-orange-700 hover:bg-orange-100 transition"

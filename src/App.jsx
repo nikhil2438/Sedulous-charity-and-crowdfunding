@@ -9,8 +9,11 @@ import Events from "./components/Pages/Events";
 import Ourinitiate from "./components/Pages/ourinitiate";
 import Payment from "./components/Payment/Payment";
 import Rtgs from "./components/Payment/Rtgs";
-
 import DonationForm from "./components/DonationForm/DonationForm";
+import Education from "./components/Pages/Education";
+import Healthcare from "./components/Pages/Healthcare";
+import FoodAndNutrition from "./components/Pages/FoodAndNutrition";
+import WomenEmpowerment from "./components/Pages/WomenEmpowerment";
 
 function App() {
   return (
@@ -24,8 +27,11 @@ function App() {
         <Route path="/ourinitiate" element={<Ourinitiate />} />
         <Route path="/donationform" element={<DonationForm />} />
         <Route path="rtgs" element={<Rtgs />} />
-
         <Route path="/payment" element={<Payment />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/healthcare" element={<Healthcare />} />
+        <Route path="/food&nutrition" element={<FoodAndNutrition />} />
+        <Route path="/womenempowerment" element={<WomenEmpowerment />} />
       </Routes>
       <Footer />
     </div>
@@ -33,4 +39,3 @@ function App() {
 }
 
 export default App;
-
