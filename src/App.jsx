@@ -9,6 +9,8 @@ import Events from "./components/Pages/Events";
 import Projects from "./components/Pages/Project";
 import Payment from "./components/Payment/Payment";
 
+
+
 import DonationForm from "./components/DonationForm/DonationForm";
 import Rtgs from "./components/Payment/Rtgs";
 import Partner from "./components/Work/Partnerpage";
@@ -26,6 +28,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/rtgs" element={<Rtgs />} />
         <Route path = "/partner" element={<Partner/>}/>
+        
       </Routes>
       <Footer />
     </div>
@@ -33,3 +36,4 @@ function App() {
 }
 
 export default App;
+
