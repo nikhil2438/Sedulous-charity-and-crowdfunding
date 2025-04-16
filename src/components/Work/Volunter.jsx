@@ -1,23 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Volunteer = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Thank you for signing up! We will get in touch soon.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
-
   return (
     <section className="py-12 bg-gray-100">
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -25,60 +8,27 @@ const Volunteer = () => {
           Join as a Volunteer
         </h2>
         <p className="text-gray-600 text-lg mb-8">
-          Become a part of our mission to bring positive change. Sign up to
-          volunteer and make a difference!
+          Become a part of our mission to bring positive change.
         </p>
 
-        {/* Volunteer Form */}
-        <form
-          className="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto"
-          onSubmit={handleSubmit}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="p-3 border border-gray-300 rounded-md w-full"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="p-3 border border-gray-300 rounded-md w-full"
-            />
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="p-3 border border-gray-300 rounded-md w-full"
-            />
-          </div>
-          <textarea
-            name="message"
-            placeholder="Why do you want to volunteer?"
-            value={formData.message}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-md w-full mt-4"
-          ></textarea>
-          <button
-            type="submit"
-            className="mt-4 bg-red-600 text-white font-semibold py-3 px-6 rounded-md shadow-md hover:bg-red-700 transition"
-          >
-            Sign Up as Volunteer
-          </button>
-        </form>
+        
+        <div className="bg-orange-100 border-l-4 border-orange-500 text-left p-6 rounded-xl shadow-md max-w-3xl mx-auto mb-10">
+          <h3 className="text-2xl font-bold text-orange-700 mb-2">
+            🌟 Make a Real Impact
+          </h3>
+          <p className="text-gray-800 text-lg leading-relaxed">
+            Be the change you wish to see in the world. Your time, effort, and kindness
+            can bring light to someone's darkest days. Whether you can spare an hour or
+            a day, every act of service counts. Let's build a better tomorrow — together.
+          </p>
+          <p className="mt-4 text-sm text-gray-600 italic">
+            *Currently we’re not collecting volunteer registrations online. Follow us on
+            social media or reach out directly to get involved!
+          </p>
+        </div>
 
-        {/* Partnership Section */}
+        
+        
         <div className="mt-12 bg-gradient-to-r from-red-500 to-orange-500 text-white p-8 rounded-lg shadow-lg">
           <h3 className="text-2xl font-bold">Partner with Us</h3>
           <p className="mt-2 text-lg">
@@ -98,3 +48,4 @@ const Volunteer = () => {
 };
 
 export default Volunteer;
+ 
