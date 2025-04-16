@@ -8,6 +8,7 @@ import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
 import Ourinitiate from "./components/Pages/ourinitiate";
 import Payment from "./components/Payment/Payment";
+import Rtgs from "./components/Payment/Rtgs";
 
 import DonationForm from "./components/DonationForm/DonationForm";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/ourinitiate" element={<Ourinitiate />} />
         <Route path="/donationform" element={<DonationForm />} />
+        <Route path="rtgs" element={<Rtgs />} />
 
         <Route path="/payment" element={<Payment />} />
       </Routes>
