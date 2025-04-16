@@ -1,134 +1,116 @@
 import React from "react";
-import templeImage from "../../assets/images/temple.jpg"; 
+import templeImage from "../../assets/images/temple.jpg";
+import { FaBookOpen, FaPray, FaRing, FaYinYang } from "react-icons/fa";
+import { GiCow } from "react-icons/gi";
 
 const About = () => {
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center"
+      className="relative min-h-screen bg-cover bg-center text-white"
       style={{ backgroundImage: `url(${templeImage})` }}
     >
-      
-      <div className="absolute inset-0  bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-60" />
 
-      <div className="relative z-10 text-center max-w-5xl p-6 md:p-12">
-      
-        <h1 className="text-5xl font-extrabold text-white mb-6 uppercase drop-shadow-lg">
+      <div className="relative z-10 max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-orange-400 drop-shadow-lg mb-8 sm:mb-12">
           माँ सिद्धेश्वरी चारित्राबाल ट्रस्ट
         </h1>
 
-        
-        <section className="bg-white/20 backdrop-blur-md rounded-xl p-6 md:p-10 shadow-xl border border-white/30 mb-8">
-          <h2 className="text-3xl font-semibold text-orange-400 mb-4">
+        {/* हमारे बारे में */}
+        <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-10 shadow-2xl border border-white/30">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-4">
             हमारे बारे में
           </h2>
-          <p className="text-lg text-black-200 leading-relaxed">
-            Maa Siddheshwari Charitable Trust works to advance religion and
-            spirituality, including the Indian traditional knowledge system. We
-            focus on education and skills beyond caste, creed, language, and
-            religion.
+          <p className="text-base sm:text-lg leading-relaxed text-white">
+            Maa Siddheshwari Charitable Trust works to promote Indian
+            spirituality and education, crossing all boundaries of caste and
+            creed. We also protect and nurture Indian cultural and educational
+            values.
           </p>
-          <p className="text-lg text-black-200 mt-4">
-            We also promote Indian culture and educational heritage, running
-            projects to encourage the social, economic, cultural, and spiritual
-            development of people with a holistic approach.
+          <p className="text-base sm:text-lg mt-4 text-white">
+            We run holistic projects focusing on spiritual, social, and economic
+            growth for all.
           </p>
-        </section>
+        </div>
 
-        
-        <section className="bg-white/20 backdrop-blur-md rounded-xl p-6 md:p-10 shadow-xl border border-white/30 mb-8">
-          <h2 className="text-3xl font-semibold text-orange-400 mb-4">
+        {/* उद्देश्य */}
+        <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-10 shadow-2xl border border-white/30">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-6 text-center">
             🔱 हमारी संस्था का उद्देश्य 🔱
           </h2>
-          <ul className="list-disc text-lg text-black-200 pl-6 space-y-3">
-            <li>
-              <span className="text-red-500 font-semibold">📚 शिक्षा:</span> 
-              स्कूलों, कॉलेजों और गुरुकुलों की स्थापना।
-            </li>
-            <li>
-              <span className="text-red-500 font-semibold">🛕 धार्मिक अनुष्ठान:</span> 
-              पूजा-पाठ, हवन एवं धार्मिक आयोजन।
-            </li>
-            <li>
-              <span className="text-red-500 font-semibold">💍 वैदिक विवाह:</span> 
-              सभी शुभ अनुष्ठानों का वैदिक रीति से आयोजन।
-            </li>
-            <li>
-              <span className="text-red-500 font-semibold">🎭 भारतीय संस्कृति:</span> 
-              योग, कला एवं परंपरा का प्रचार-प्रसार।
-            </li>
-            <li>
-              <span className="text-red-500 font-semibold">🐄 गौ सेवा:</span> 
-              गौशालाओं की स्थापना एवं देखरेख।
-            </li>
-          </ul>
-        </section>
+          <div className="grid sm:grid-cols-2 gap-6 text-white text-base sm:text-lg">
+            <div className="space-y-4">
+              <p>
+                <FaBookOpen className="inline text-red-400 mr-2" />
+                <span className="font-bold">शिक्षा:</span> स्कूल, कॉलेज, गुरुकुल
+                की स्थापना।
+              </p>
+              <p>
+                <FaPray className="inline text-red-400 mr-2" />
+                <span className="font-bold">धार्मिक अनुष्ठान:</span> पूजा, हवन
+                एवं धार्मिक आयोजन।
+              </p>
+              <p>
+                <FaRing className="inline text-red-400 mr-2" />
+                <span className="font-bold">वैदिक विवाह:</span> शुभ अनुष्ठानों
+                का आयोजन।
+              </p>
+            </div>
+            <div className="space-y-4">
+              <p>
+                <FaYinYang className="inline text-red-400 mr-2" />
+                <span className="font-bold">भारतीय संस्कृति:</span> योग, कला एवं
+                परंपरा का प्रचार।
+              </p>
+              <p>
+                <GiCow className="inline text-red-400 mr-2" />
+                <span className="font-bold">गौ सेवा:</span> गौशालाओं की स्थापना
+                एवं देखरेख।
+              </p>
+            </div>
+          </div>
+        </div>
 
-        
-        <section className="bg-white/20 backdrop-blur-md rounded-xl p-6 md:p-10 shadow-xl border border-white/30 mb-8">
-          <h2 className="text-3xl font-semibold text-orange-400 mb-4">
+        {/* ट्रस्टी का संदेश */}
+        <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-10 shadow-2xl border border-white/30">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-4">
             ट्रस्टी का संदेश
           </h2>
-          <p className="text-lg text-black-200 leading-relaxed">
-            As a trustee of our temple trust fund, I am honored to serve and
-            uphold our sacred mission of preserving our temple’s heritage and
-            promoting its values of unity, compassion, and spiritual growth.
+          <p className="text-base sm:text-lg leading-relaxed text-white">
+            As a trustee, I’m honored to protect our temple’s values — unity,
+            compassion, and growth. We remain transparent, accountable, and
+            committed to serving our community.
           </p>
-          <p className="text-lg text-black-200 mt-4">
-            Our commitment to transparency, accountability, and responsible
-            stewardship ensures that every contribution directly supports the
-            prosperity and longevity of our temple.
+          <p className="text-base sm:text-lg mt-4 text-white">
+            Every contribution strengthens our legacy, supports sacred spaces,
+            and nurtures spiritual development.
           </p>
-          <p className="text-lg text-black-200">
-            With the support of our dedicated community, we strive to safeguard
-            our temple’s traditions, maintain its sacred spaces, and expand our
-            outreach to enrich the lives of all who seek solace and spiritual
-            nourishment within our holy walls.
-          </p>
-        </section>
+        </div>
 
-        
-        <section className="bg-white/20 backdrop-blur-md rounded-xl p-6 md:p-10 shadow-xl border border-white/30">
-          <h2 className="text-3xl font-semibold text-orange-400 mb-4 text-center">
-            हमारा नज़रिया
+        {/* हमारा नज़रिया */}
+        <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/30">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-6 text-center">
+            🌼 हमारा नज़रिया 🌼
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ul className="text-lg text-black-200 list-disc pl-6">
-              <li className="mb-2">
-                Establish and support schools, colleges, research centers, and the
-                Gurukul education system to advance Indian culture and knowledge.
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white text-base sm:text-lg">
+            <ul className="space-y-3 list-disc list-inside">
+              <li>Support Gurukuls, schools, and cultural research centers.</li>
+              <li>
+                Organize worship, rituals, and festivals of all religions.
               </li>
-              <li className="mb-2">
-                Organize and conduct worship, homa, religious ceremonies, and
-                festivals of all religions.
-              </li>
-              <li className="mb-2">
-                Perform rituals and ceremonies, including weddings, according to
-                Vedic traditions.
-              </li>
-              <li className="mb-2">
-                Empower monks and spiritual seekers to spread the wisdom of the
-                Vedas and other ancient Indian knowledge.
-              </li>
+              <li>Perform Vedic marriage and rituals with tradition.</li>
+              <li>Empower saints and spread ancient knowledge.</li>
             </ul>
-            <ul className="text-lg text-black-200 list-disc pl-6">
-              <li className="mb-2">
-                Inspire youth to appreciate art, culture, yoga, and Indian
-                heritage.
-              </li>
-              <li className="mb-2">
-                Establish temples and cow shelters (Gaushalas).
-              </li>
-              <li className="mb-2">
-                Feed millions of underprivileged children in India who have the
-                enthusiasm to learn but lack resources.
-              </li>
+            <ul className="space-y-3 list-disc list-inside">
+              <li>Promote yoga, arts, and Indian values among youth.</li>
+              <li>Establish temples and Gaushalas (cow shelters).</li>
+              <li>Feed underprivileged children passionate about learning.</li>
             </ul>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
 };
 
 export default About;
- 

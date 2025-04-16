@@ -18,7 +18,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="hidden md:flex space-x-8 font-semibold uppercase tracking-wide">
+        <div className="hidden md:flex space-x-8 font-semibold  tracking-wide">
           <Link
             to="/"
             className="text-gray-700 hover:text-orange-500 transition"
@@ -32,10 +32,10 @@ const Navbar = () => {
             About Us
           </Link>
           <Link
-            to="/projects"
+            to="/ourinitiate"
             className="text-gray-700 hover:text-orange-500 transition"
           >
-            Projects
+            Our initiate
           </Link>
           <Link
             to="/events"
@@ -81,10 +81,10 @@ const Navbar = () => {
             About Us
           </Link>
           <Link
-            to="/projects"
+            to="/ourinitiate"
             className="block px-6 py-3 text-orange-700 hover:bg-orange-100 transition"
           >
-            Projects
+            Our initiate
           </Link>
           <Link
             to="/events"
