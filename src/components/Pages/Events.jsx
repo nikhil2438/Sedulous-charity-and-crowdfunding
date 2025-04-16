@@ -3,66 +3,97 @@ import banner2 from "../../assets/images/banner2.jpg";
 import festival1 from "../../assets/images/festival1.png";
 import festival2 from "../../assets/images/festival2.png";
 import Video from "../../components/Pages/Video";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const Event = () => {
   return (
     <>
-      <div>
-        <img src={banner2} alt="img" />
+      {/* Banner */}
+      <div className="w-full">
+        <img
+          src={banner2}
+          alt="Event Banner"
+          className="w-full h-auto object-cover max-h-[500px]"
+        />
       </div>
-      <div className="min-h-screen flex flex-col items-center justify-center  p-4 sm:p-6 mt-2">
-        <div className="flex flex-col sm:flex-row-reverse items-center mb-10 w-full max-w-4xl">
-          <img
-            src={festival1}
-            alt="लभुआनी महोत्सव Logo"
-            className=" w-full max-w-[800px] h-auto sm:w-[600px] sm:h-[500px] object-contain sm:ml-6"
-          />
-          <div className="text-center sm:text-left">
-            <h1 className="text-3xl sm:text-4xl font-bold text-red-600 mt-4">
+
+      {/* Main Section */}
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-10">
+        {/* शोभायात्रा Section */}
+        <motion.div
+          className="flex flex-col-reverse sm:flex-row items-center mb-16 w-full max-w-6xl rounded-3xl  p-6 sm:p-10"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <div className="sm:w-1/2 text-center sm:text-left">
+            <h2 className="text-4xl sm:text-5xl font-bold text-red-600 mb-2">
               शोभायात्रा
-            </h1>
-            <p className="text-base sm:text-lg text-gray-700 mt-2">
-              "April 28 to May 3, 2025"
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-800 font-semibold mb-4">
+              📅 April 28 to May 3, 2025
             </p>
-            <p className="text-gray-700 mt-4 text-base sm:text-lg ">
-              "Be a part of the grand Shobha Yatra and experience our culture
-              and spirituality. This procession vividly showcases our glorious
-              history, religious faith, and folk traditions. Magnificent
-              tableaux, the melodious sound of traditional musical instruments,
-              and the enthusiasm of devotees make it even more special. Come,
-              join this divine event and immerse yourself in devotion,
-              dedication, and celebration!"
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              भव्य शोभायात्रा का हिस्सा बनें और हमारी संस्कृति व आध्यात्मिकता का
+              अनुभव करें। मनोहारी झांकियां, वाद्य यंत्रों की मधुर ध्वनि और
+              श्रद्धालुओं का जोश इसे खास बनाते हैं।
             </p>
           </div>
-        </div>
+          <div className="sm:w-1/2 flex justify-center">
+            <img
+              src={festival1}
+              alt="Shobha Yatra"
+              className="w-full max-w-sm rounded-xl shadow-md"
+            />
+          </div>
+        </motion.div>
 
-        {/* Shobha Yatra Section */}
-        <div className="flex flex-col sm:flex-row items-center w-full max-w-4xl">
-          <img
-            src={festival2}
-            alt="शोभायात्रा Logo"
-            className=" w-full max-w-[700px] h-auto sm:w-[500px] sm:h-[500px] object-contain sm:ml-6"
-          />
-          <div className="text-center sm:text-left">
-            <h1 className="text-3xl sm:text-4xl font-bold text-red-600 mt-4">
+        {/* लभुआनी महोत्सव Section */}
+        <motion.div
+          className="flex flex-col sm:flex-row items-center mb-16 w-full max-w-6xl rounded-3xl "
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <div className="sm:w-1/2 flex justify-center">
+            <img
+              src={festival2}
+              alt="Labhuani Mahotsav"
+              className="w-full max-w-sm rounded-xl shadow-md"
+            />
+          </div>
+          <div className="sm:w-1/2 text-center sm:text-left">
+            <h2 className="text-4xl sm:text-5xl font-bold text-red-600 mb-2">
               लभुआनी महोत्सव
-            </h1>
-            <p className="text-base sm:text-lg text-gray-700 mt-2">
-              "April 27, 2025"
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-800 font-semibold mb-4">
+              📅 April 27, 2025
             </p>
-
-            <p className="text-gray-700 mt-4 text-base sm:text-lg ">
-              "This festival is a confluence of tradition, art, and culture.
-              Here, you will experience the uniqueness of traditional folk
-              dance, music, drama, and handicrafts. This festival brings our
-              rich heritage to life and provides a golden opportunity for the
-              new generation to connect with its roots. Join us in this
-              magnificent celebration and immerse yourself in the grandeur of
-              folk culture!"
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              यह महोत्सव परंपरा, कला और संस्कृति का संगम है। लोक नृत्य, संगीत और
+              हस्तशिल्प यहाँ की विशेषता हैं। यह नई पीढ़ी को अपनी जड़ों से जोड़ने
+              का अवसर है।
             </p>
           </div>
-        </div>
-        {<Video />}
+        </motion.div>
+
+        {/* Video Section */}
+        <motion.div
+          className="w-full max-w-6xl mt-4 mb-12"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <Video />
+        </motion.div>
       </div>
     </>
   );
