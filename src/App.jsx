@@ -9,9 +9,10 @@ import Events from "./components/Pages/Events";
 import Ourinitiate from "./components/Pages/ourinitiate";
 import Payment from "./components/Payment/Payment";
 import Rtgs from "./components/Payment/Rtgs";
-
+import Vision from "./components/DonationForm/Vision";
 import DonationForm from "./components/DonationForm/DonationForm";
-
+import ContactAndPartner from "./components/Work/Partnerpage";
+import FundRaise from "./components/FundRaise/FundRaise";
 function App() {
   return (
     <div>
@@ -24,8 +25,10 @@ function App() {
         <Route path="/ourinitiate" element={<Ourinitiate />} />
         <Route path="/donationform" element={<DonationForm />} />
         <Route path="rtgs" element={<Rtgs />} />
-
+<Route path = "/vision" element= {<Vision/>}/>
         <Route path="/payment" element={<Payment />} />
+        <Route path="/partner" element={<ContactAndPartner />} />
+        <Route path = "/fundraiser" element ={<FundRaise/>}/>
       </Routes>
       <Footer />
     </div>
