@@ -9,11 +9,11 @@ const About = () => {
       className="relative min-h-screen bg-cover bg-center text-white"
       style={{ backgroundImage: `url(${templeImage})` }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-60" />
+      <div className="absolute inset-0 bg-orange-800 bg-opacity-60" />
 
       <div className="relative z-10 max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-orange-400 drop-shadow-lg mb-8 sm:mb-12">
-          माँ सिद्धेश्वरी चारित्राबाल ट्रस्ट
+          माँ सिद्धेश्वरी चैरिटी ट्रस्ट
         </h1>
 
         {/* हमारे बारे में */}
