@@ -6,7 +6,7 @@ import About from "./components/Pages/About";
 import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
-import Ourinitiate from "./components/Pages/ourinitiate";
+import Ourinitiate from "./components/Pages/Ourinitiate";
 import Payment from "./components/Payment/Payment";
 import Rtgs from "./components/Payment/Rtgs";
 import Vision from "./components/DonationForm/Vision";
