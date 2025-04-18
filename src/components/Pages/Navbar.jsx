@@ -97,7 +97,7 @@ const Navbar = () => {
           </button>
 
           {/* Optional Language Dropdown for Desktop */}
-          {/* 
+{/*           
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
@@ -123,7 +123,7 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          */}
+           */}
 
           <div id="google_translate_element"></div>
         </div>
