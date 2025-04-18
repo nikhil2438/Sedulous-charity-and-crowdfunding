@@ -1,6 +1,9 @@
-import { useState } from "react";
+// Import useEffect for navigation on checkbox click
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import React from "react";
+
 function DonationForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -9,6 +12,8 @@ function DonationForm() {
     address: "",
     reason: "",
   });
+
+  const [checked, setChecked] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,8 +35,14 @@ function DonationForm() {
     navigate("/payment");
   };
 
+  useEffect(() => {
+    if (checked) {
+      navigate("/qr-payment");
+    }
+  }, [checked, navigate]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-orange-100 p-6">
+    <div className="min-h-screen flex items-center justify-center   p-6">
       <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-orange-600 mb-4 text-center">
           Donation Registration
@@ -68,6 +79,7 @@ function DonationForm() {
             onChange={handleChange}
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
+
           <button
             type="submit"
             className="w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition duration-300"
