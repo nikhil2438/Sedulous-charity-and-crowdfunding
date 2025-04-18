@@ -6,7 +6,6 @@ import Logo from "../../assets/images/Logo.png";
 import "../Pages/navbar.css";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState("en");
@@ -45,7 +44,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    
     if (!document.querySelector("#google-translate-script")) {
       const script = document.createElement("script");
       script.id = "google-translate-script";
@@ -53,7 +51,6 @@ const Navbar = () => {
       script.async = true;
       document.body.appendChild(script);
     }
-
 
     window.googleTranslateElementInit = () => {
       if (!document.querySelector(".skiptranslate")) {
@@ -69,12 +66,11 @@ const Navbar = () => {
       modifyTranslateText();
     };
 
-  
     const savedLang = localStorage.getItem("selectedLanguage") || "en";
     setLanguage(savedLang);
     setTimeout(() => {
       setGoogleTranslateLanguage(savedLang);
-    }, 500); 
+    }, 500);
   }, []);
 
   return (
@@ -100,7 +96,9 @@ const Navbar = () => {
             Donate
           </button>
 
-          {/* <div className="relative">
+          {/* Optional Language Dropdown for Desktop */}
+          {/* 
+          <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
               className="flex items-center px-3 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition"
@@ -124,15 +122,17 @@ const Navbar = () => {
                 </button>
               </div>
             )}
-          </div> */}
-
-          <div id="google_translate_element">
-            
           </div>
+          */}
+
+          <div id="google_translate_element"></div>
         </div>
 
-        <button className="md:hidden text-gray-700" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <button
+          className="md:hidden text-gray-700"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
@@ -159,11 +159,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-
-      {/* { <div
-        id="google_translate_element"
-        style={{ position: "absolute", top: 0, left: 0, opacity: 0, pointerEvents: "none", zIndex: -1 }}
-      /> } */}
     </nav>
   );
 };
