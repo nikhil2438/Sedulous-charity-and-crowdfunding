@@ -158,10 +158,10 @@ const Navbar = () => {
         </div>
       )}
 
-      { <div
+      {/* { <div
         id="google_translate_element"
         style={{ position: "absolute", top: 0, left: 0, opacity: 0, pointerEvents: "none", zIndex: -1 }}
-      /> }
+      /> } */}
     </nav>
   );
 };
