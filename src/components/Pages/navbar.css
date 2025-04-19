@@ -1,67 +1,82 @@
-.goog-te-gadget-simple,
-.goog-te-gadget-simple * {
-  all: unset !important;
-  display: inline-block !important;
-  font-family: inherit !important;
-  font-size: 13px !important;
-  color: black !important;
-  background: red !important;
-  border: 1px !important;
-  padding: 1px !important;
-  margin: 0 !important;
-  text-align: inherit !important;
-  cursor: pointer !important;
+/* 
+/* Main container styling */
+.goog-te-gadget-simple {
+  background: #f5f5f5 !important;
+  border: 1px solid #ccc !important;
   border-radius: 5px !important;
-}
-
-#gtx-trans {
-  background-color: rgb(245, 245, 245);
-  box-sizing: content-box;
-  cursor: pointer;
-  height: 19px;
-  width: 19px;
-  z-index: 2147483647;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(220, 220, 220);
-  border-image: initial;
-  border-radius: 5px;
-  padding: 3px;
-  display: none !important;
-}
-
-/* background-color: #ccc !important;
-  border-left: 0px solid #d5d5d5 !important;
-  border-top: 0px solid #9b9b9b !important;
-  border-bottom: 0px solid #e8e8e8 !important;
-  border-right: 0px solid #d5d5d5 !important;
-  font-size: 12px !important;
+  padding: 4px 8px !important;
+  font-size: 14px !important;
+  color: #333 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
   display: inline-block !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-  cursor: pointer; */
-
-.goog-te-gadget img {
-  vertical-align: middle;
-  border: none;
-  display: none;
 }
-.VIpgJd-ZVi9od-ORHb-OEVmcd {
-  left: 0;
-  top: 0;
-  height: 39px;
-  width: 100%;
-  z-index: 10000001;
-  position: fixed;
-  border: none;
-  border-bottom: 1px solid #6b90da;
-  margin: 0;
-  box-shadow: 0 0 8px 1px #999;
+
+/* Hide unnecessary Google logo/image */
+.goog-te-gadget img {
   display: none !important;
 }
-li #google_translate_element {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: inline-block;
+
+/* Prevent Google Translate banner at the top */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Remove the grey bar that sometimes appears on translate load */
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
+
+/* Optional: Smooth the dropdown style */
+.goog-te-combo {
+  padding: 4px 6px !important;
+  border-radius: 5px !important;
+  border: 1px solid #ccc !important;
+  background-color: #fff !important;
+  color: #333 !important;
+  font-family: inherit !important;
+}
+
+/* Hide Google translate tooltip */
+#goog-gt-tt,
+.goog-tooltip,
+.activity-root,
+.status-message {
+  display: none !important;
+}
+
+/* Hide auto-popup button from Chrome extension */
+#gtx-trans {
+  display: none !important;
+}
+
+/* Prevent layout breaks in some cases */
+.goog-te-gadget {
+  line-height: normal !important;
+}
+
+/* Hide Google Translate top bar */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important; /* Prevent spacing issues when bar is hidden */
+}
+
+/* Hide the Google Translate loader spinner */
+.goog-te-spinner-pos,
+.goog-te-spinner-animation {
+  display: none !important;
+}
+
+/* For Mobile: Hide Translate element visually but make it functional */
+#google_translate_element_mobile {
+  display: block !important;
+  height: 0;
+  overflow: hidden;
 }
