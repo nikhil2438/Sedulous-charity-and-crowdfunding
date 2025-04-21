@@ -6,7 +6,7 @@ const categories = [
   { name: "Cancer", icon: "🎗️" },
   { name: "NGO Support", icon: "🤝" },
   { name: "Hospital Aid", icon: "🏥" },
-  { name: "Transplant", icon: "💉" },
+  { name: " Organ Transplant", icon: "💉" },
   { name: "Education", icon: "📚" },
   { name: "Personal Cause", icon: "💖" },
 ];

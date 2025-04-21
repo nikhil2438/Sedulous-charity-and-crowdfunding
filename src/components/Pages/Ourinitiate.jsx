@@ -1,88 +1,90 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import educationImg from "../../assets/images/education.jpg";
-import banner7Img from "../../assets/images/banner7.jpg";
-import pageImg from "../../assets/images/page.png";
-import banner5Img from "../../assets/images/banner5.jpg";
-import banner4Img from "../../assets/images/banner4.jpg";
-import FoodImg from "../../assets/images/Food.jpg";
+import foodImg from "../../assets/images/Food.jpg";
+import healthcareImg from "../../assets/images/banner7.jpg";
+import womenImg from "../../assets/images/page.png";
 
-const projects = [
+const initiatives = [
   {
-    title: "Education for All",
-    description:
-      "Providing free education and scholarships for underprivileged children.",
+    title: "Education",
+    description: "Providing free education and scholarships for underprivileged children.",
     image: educationImg,
-    tag: "Education",
+    route: "/education",
   },
   {
-    title: "Healthcare Support",
+    title: "Food & Nutrition",
+    description: "Distributing meals and groceries to the homeless and poor.",
+    image: foodImg,
+    route: "/food&nutrition",
+  },
+  {
+    title: "Healthcare",
     description: "Free medical camps and hospital assistance for the needy.",
-    image: banner7Img,
-    tag: "Health",
+    image: healthcareImg,
+    route: "/healthcare",
   },
   {
     title: "Women Empowerment",
-    description:
-      "Skill development programs to empower women for self-sufficiency.",
-    image: pageImg,
-    tag: "Women",
-  },
-  {
-    title: "Food & Nutrition",
-    description: "Distributing meals and groceries to the homeless and poor.",
-    image: banner5Img,
-    tag: "Food",
-  },
-  {
-    title: "Food & Nutrition",
-    description: "Distributing meals and groceries to the homeless and poor.",
-    image: banner4Img,
-    tag: "Food",
-  },
-  {
-    title: "Women Empowerment",
-    description:
-      "Skill development programs to empower women for self-sufficiency.",
-    image: FoodImg,
-    tag: "Women",
+    description: "Skill development programs to empower women for self-sufficiency.",
+    image: womenImg,
+    route: "/womenempowerment",
   },
 ];
 
-export default function Projects() {
+export default function Ourinitiate() {
+  const navigate = useNavigate();
+
+  const handleSelectChange = (e) => {
+    const selectedRoute = e.target.value;
+    if (selectedRoute) {
+      navigate(selectedRoute);
+    }
+  };
+
   return (
-    <section className="py-16 px-6 bg-gray-50">
+    <section className="py-16 px-6 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-8">
-      <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-red-700 mb-12 relative">
-  <span className="relative inline-block">
-    <span className="relative z-10">
-      हमारी पहल ज़रूरतमंदों के जीवन में आशा की एक किरण है
-    </span>
-    <span className="absolute left-1/2 -bottom-1.5 w-32 h-1 bg-red-300 rounded-full transform -translate-x-1/2"></span>
-  </span>
-</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-red-700 mb-6">
+          हमारी पहल
+        </h2>
+
+        {/* Dropdown Select */}
+        <div className="mb-10 flex justify-center">
+          <select
+            onChange={handleSelectChange}
+            defaultValue=""
+            className="w-full sm:w-96 p-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+          >
+            <option value="" disabled>
+              Choose an Initiative
+            </option>
+            {initiatives.map((item, index) => (
+              <option key={index} value={item.route}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Initiative Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+          {initiatives.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              onClick={() => navigate(item.route)}
+              className="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 hover:scale-105"
             >
-              <div className="relative">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-52 object-cover"
-                />
-                <span className="absolute top-3 left-3 bg-red-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
-                  {project.tag}
-                </span>
-              </div>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-48 object-cover"
+              />
               <div className="p-5">
-                <h3 className="text-xl font-bold text-gray-800">
-                  {project.title}
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  {item.title}
                 </h3>
-                <p className="text-gray-600 mt-2 text-sm">
-                  {project.description}
-                </p>
+                <p className="text-gray-700 text-sm">{item.description}</p>
               </div>
             </div>
           ))}
@@ -91,3 +93,4 @@ export default function Projects() {
     </section>
   );
 }
+ 

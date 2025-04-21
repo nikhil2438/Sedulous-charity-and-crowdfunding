@@ -11,11 +11,12 @@ import Education from "./components/Pages/Education";
 import Payment from "./components/Payment/Payment";
 import Rtgs from "./components/Payment/Rtgs";
 import DonationForm from "./components/DonationForm/DonationForm";
-
+import FundRaise from "./components/FundRaise/FundRaise";
 import Healthcare from "./components/Pages/Healthcare";
 import FoodAndNutrition from "./components/Pages/FoodAndNutrition";
 import WomenEmpowerment from "./components/Pages/WomenEmpowerment";
-
+import Vision from "./components/DonationForm/Vision";
+import PartnerPage from "./components/Work/Partnerpage";
 function App() {
   return (
     <div>
@@ -35,6 +36,9 @@ function App() {
         <Route path="/healthcare" element={<Healthcare />} />
         <Route path="/food&nutrition" element={<FoodAndNutrition />} />
         <Route path="/womenempowerment" element={<WomenEmpowerment />} />
+        <Route path="/fundraiser"  element={<FundRaise/>}/>
+        <Route path="/vision" element={<Vision/>}/>
+        <Route path="/partner" element={<PartnerPage/>}/>
       </Routes>
       <Footer />
     </div>
