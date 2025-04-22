@@ -1,13 +1,42 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "../../assets/images/Logo.png";
+import educationImg from "../../assets/images/education.jpg";
+import foodImg from "../../assets/images/Food.jpg";
+import healthcareImg from "../../assets/images/banner7.jpg";
+import womenImg from "../../assets/images/page.png";
 import "../Pages/navbar.css";
+
+const initiatives = [
+  {
+    title: "Education",
+    route: "/education",
+    image: educationImg,
+  },
+  {
+    title: "Food & Nutrition",
+    route: "/food&nutrition",
+    image: foodImg,
+  },
+  {
+    title: "Healthcare",
+    route: "/healthcare",
+    image: healthcareImg,
+  },
+  {
+    title: "Women Empowerment",
+    route: "/womenempowerment",
+    image: womenImg,
+  },
+];
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState("en");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
   const handleLanguageChange = (lang) => {
@@ -86,7 +115,6 @@ const Navbar = () => {
       }
     }, 1000);
 
-    // Inject style to forcibly hide loader and banner
     const style = document.createElement("style");
     style.innerHTML = `
       .goog-te-spinner-pos,
@@ -119,7 +147,17 @@ const Navbar = () => {
       subtree: true,
     });
 
-    return () => observer.disconnect();
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   return (
@@ -133,16 +171,40 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="hidden md:flex space-x-8 font-semibold tracking-wide">
+        <div className="hidden md:flex space-x-8 font-semibold tracking-wide items-center">
           <Link to="/" className="text-gray-700 hover:text-orange-500 transition">
             Home
           </Link>
           <Link to="/about" className="text-gray-700 hover:text-orange-500 transition">
             About Us
           </Link>
-          <Link to="/ourinitiate" className="text-gray-700 hover:text-orange-500 transition">
-            Our Initiate
-          </Link>
+
+          {/* Our Initiate Dropdown */}
+          <div className="relative group" ref={dropdownRef}>
+            <button
+              onClick={() => setShowDropdown((prev) => !prev)}
+              className="text-gray-700 hover:text-orange-500 transition flex items-center gap-1"
+            >
+              Our Initiate <ChevronDown size={16} />
+            </button>
+            {showDropdown && (
+              <div className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 w-48 z-50">
+                {initiatives.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      navigate(item.route);
+                      setShowDropdown(false);
+                    }}
+                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100"
+                  >
+                    {item.title}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <Link to="/events" className="text-gray-700 hover:text-orange-500 transition">
             Events
           </Link>
@@ -172,14 +234,14 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t shadow-lg">
-          {["/", "/about", "/ourinitiate", "/events", "/gallery", "/DonationForm"].map((route, i) => {
-            const labels = ["Home", "About Us", "Our Initiate", "Events", "Gallery", "Donate"];
+          {["/", "/about", "/events", "/gallery", "/DonationForm"].map((route, i) => {
+            const labels = ["Home", "About Us", "Events", "Gallery", "Donate"];
             return (
               <Link
                 key={route}
                 to={route}
                 className={`block px-6 py-3 ${
-                  i === 5
+                  i === 4
                     ? "bg-orange-500 text-white text-center rounded-b-lg"
                     : "text-orange-700 hover:bg-orange-100 transition"
                 }`}
@@ -188,6 +250,25 @@ const Navbar = () => {
               </Link>
             );
           })}
+
+          {/* Initiatives inside mobile menu */}
+          <div className="px-6 pt-3 border-t">
+            <span className="font-semibold text-orange-700">Our Initiate</span>
+            {initiatives.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  navigate(item.route);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100"
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Language Switcher */}
           <div className="px-6 py-3 border-t flex justify-between items-center">
             <span className="text-gray-700 font-medium">Language:</span>
             <select
@@ -200,7 +281,6 @@ const Navbar = () => {
             </select>
           </div>
 
-          {/* Mobile Google Translate */}
           <div className="px-6 py-3" id="google_translate_element_mobile"></div>
         </div>
       )}

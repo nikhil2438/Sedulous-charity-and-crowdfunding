@@ -35,39 +35,14 @@ const initiatives = [
 export default function Ourinitiate() {
   const navigate = useNavigate();
 
-  const handleSelectChange = (e) => {
-    const selectedRoute = e.target.value;
-    if (selectedRoute) {
-      navigate(selectedRoute);
-    }
-  };
-
   return (
     <section className="py-16 px-6 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-8">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-red-700 mb-6">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-red-700 mb-12">
           हमारी पहल
         </h2>
 
-        {/* Dropdown Select */}
-        <div className="mb-10 flex justify-center">
-          <select
-            onChange={handleSelectChange}
-            defaultValue=""
-            className="w-full sm:w-96 p-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-          >
-            <option value="" disabled>
-              Choose an Initiative
-            </option>
-            {initiatives.map((item, index) => (
-              <option key={index} value={item.route}>
-                {item.title}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Initiative Cards */}
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
           {initiatives.map((item, index) => (
             <div
@@ -93,4 +68,3 @@ export default function Ourinitiate() {
     </section>
   );
 }
- 
