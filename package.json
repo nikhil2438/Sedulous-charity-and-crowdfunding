@@ -10,12 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    
     "@radix-ui/react-dialog": "^1.1.6",
     "@tailwindcss/oxide": "^4.0.15",
     "@tailwindcss/vite": "^4.0.9",
     "autoprefixer": "^10.4.21",
-    "axios": "^1.8.4",
+    "axios": "^1.9.0",
     "framer-motion": "^12.5.0",
     "html5-qrcode": "^2.3.8",
     "i18next": "^25.0.0",

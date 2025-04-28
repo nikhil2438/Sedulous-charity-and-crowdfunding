@@ -1,30 +1,23 @@
-// Import useEffect for navigation on checkbox click
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-import React from "react";
+import React, { useState } from "react";
 
 function DonationForm() {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
-    contact: "",
+    fullName: "",
+    contactNumber: "",
     address: "",
     reason: "",
   });
-
-  const [checked, setChecked] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
-      !formData.name ||
-      !formData.contact ||
+      !formData.fullName ||
+      !formData.contactNumber ||
       !formData.address ||
       !formData.reason
     ) {
@@ -32,17 +25,38 @@ function DonationForm() {
       return;
     }
 
-    navigate("/payment");
+    try {
+      const response = await fetch("http://localhost:5000/api/donations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log("Backend error:", errorData);
+        throw new Error(errorData.error || "Something went wrong");
+      }
+
+      console.log("Donation form submitted successfully!");
+      alert("Donation form submitted successfully");
+
+      setFormData({
+        fullName: "",
+        contactNumber: "",
+        address: "",
+        reason: "",
+      });
+    } catch (error) {
+      console.log("Error submitting donation:", error);
+      alert(`Failed to submit donation: ${error.message}`);
+    }
   };
 
-  useEffect(() => {
-    if (checked) {
-      navigate("/qr-payment");
-    }
-  }, [checked, navigate]);
-
   return (
-    <div className="min-h-screen flex items-center justify-center   p-6">
+    <div className="min-h-screen flex items-center justify-center p-6">
       <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-orange-600 mb-4 text-center">
           Donation Registration
@@ -50,17 +64,17 @@ function DonationForm() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            name="name"
+            name="fullName"
             placeholder="Full Name"
-            value={formData.name}
+            value={formData.fullName}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
           <input
             type="text"
-            name="contact"
+            name="contactNumber"
             placeholder="Contact Number"
-            value={formData.contact}
+            value={formData.contactNumber}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
           />

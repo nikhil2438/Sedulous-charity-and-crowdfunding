@@ -8,7 +8,6 @@ import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
 import Ourinitiate from "./components/Pages/Ourinitiate";
 import Education from "./components/Pages/Education";
-import Payment from "./components/Payment/Payment";
 import Rtgs from "./components/Payment/Rtgs";
 import DonationForm from "./components/DonationForm/DonationForm";
 import FundRaise from "./components/FundRaise/FundRaise";
@@ -20,10 +19,9 @@ import PartnerPage from "./components/Work/Partnerpage";
 function App() {
   return (
     <div>
-      
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} /> 
+        <Route path="/" element={<Home />} />
 
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
@@ -31,14 +29,13 @@ function App() {
         <Route path="/ourinitiate" element={<Ourinitiate />} />
         <Route path="/donationform" element={<DonationForm />} />
         <Route path="rtgs" element={<Rtgs />} />
-        <Route path="/payment" element={<Payment />} />
         <Route path="/education" element={<Education />} />
         <Route path="/healthcare" element={<Healthcare />} />
         <Route path="/food&nutrition" element={<FoodAndNutrition />} />
         <Route path="/womenempowerment" element={<WomenEmpowerment />} />
-        <Route path="/fundraiser"  element={<FundRaise/>}/>
-        <Route path="/vision" element={<Vision/>}/>
-        <Route path="/partner" element={<PartnerPage/>}/>
+        <Route path="/fundraiser" element={<FundRaise />} />
+        <Route path="/vision" element={<Vision />} />
+        <Route path="/partner" element={<PartnerPage />} />
       </Routes>
       <Footer />
     </div>
