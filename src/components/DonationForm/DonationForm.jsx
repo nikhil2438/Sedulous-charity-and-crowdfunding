@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // import navigate
 
 function DonationForm() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ function DonationForm() {
     address: "",
     reason: "",
   });
+
+  const navigate = useNavigate(); // initialize navigate
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,14 +44,18 @@ function DonationForm() {
       }
 
       console.log("Donation form submitted successfully!");
-      alert("Donation form submitted successfully");
 
+      // Reset form
       setFormData({
         fullName: "",
         contactNumber: "",
         address: "",
         reason: "",
       });
+
+      // ✅ Navigate to Payment page
+      navigate("/payment");
+
     } catch (error) {
       console.log("Error submitting donation:", error);
       alert(`Failed to submit donation: ${error.message}`);
@@ -107,3 +114,4 @@ function DonationForm() {
 }
 
 export default DonationForm;
+ 

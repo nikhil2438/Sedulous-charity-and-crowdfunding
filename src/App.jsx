@@ -16,6 +16,8 @@ import FoodAndNutrition from "./components/Pages/FoodAndNutrition";
 import WomenEmpowerment from "./components/Pages/WomenEmpowerment";
 import Vision from "./components/DonationForm/Vision";
 import PartnerPage from "./components/Work/Partnerpage";
+import Payment from "./components/Payment/Payment";
+
 function App() {
   return (
     <div>
@@ -36,6 +38,7 @@ function App() {
         <Route path="/fundraiser" element={<FundRaise />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/partner" element={<PartnerPage />} />
+        <Route path="/payment" element={<Payment/>} />
       </Routes>
       <Footer />
     </div>
