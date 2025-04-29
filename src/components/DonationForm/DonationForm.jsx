@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // import navigate
+import { useNavigate } from "react-router-dom"; 
 
 function DonationForm() {
   const [formData, setFormData] = useState({
@@ -7,22 +7,29 @@ function DonationForm() {
     contactNumber: "",
     address: "",
     reason: "",
+    amount:"",
   });
 
-  const navigate = useNavigate(); // initialize navigate
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]:name === "amount" ? Number(value) : value });
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const { fullName, contactNumber, address, reason, amount } = formData;
 
     if (
       !formData.fullName ||
       !formData.contactNumber ||
       !formData.address ||
-      !formData.reason
+      !formData.reason ||
+      !amount ||
+      amount<=0
     ) {
       alert("Please fill in all fields before proceeding.");
       return;
@@ -45,15 +52,16 @@ function DonationForm() {
 
       console.log("Donation form submitted successfully!");
 
-      // Reset form
+      
       setFormData({
         fullName: "",
         contactNumber: "",
         address: "",
         reason: "",
+        amount: "",
       });
 
-      // ✅ Navigate to Payment page
+      
       navigate("/payment");
 
     } catch (error) {
@@ -98,6 +106,15 @@ function DonationForm() {
             placeholder="Reason for Donation"
             value={formData.reason}
             onChange={handleChange}
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+          <input
+            type="number"
+            name="amount"
+            placeholder="Donation Amount (INR)"
+            value={formData.amount}
+            onChange={handleChange}
+            min="1"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
 
