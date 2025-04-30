@@ -1,11 +1,10 @@
- 
 /* Main container styling */
 .goog-te-gadget-simple {
-  background:red !important;
+  background: red !important;
   border: 1px solid red !important;
   border-radius: 5px !important;
-  padding: 4px 8px !important;
-  font-size: 14px !important;
+  padding: 10px 10px !important;
+  font-size: 16px !important;
   color: red !important;
   font-family: inherit !important;
   cursor: pointer !important;
@@ -33,8 +32,8 @@ body {
 
 /* Optional: Smooth the dropdown style */
 .goog-te-combo {
-  padding: 4px 6px !important;
-  border-radius: 5px !important;
+  padding: 10px 10px !important;
+  border-radius: 20px !important;
   border: 1px solid #ccc !important;
   background-color: #fff !important;
   color: #333 !important;

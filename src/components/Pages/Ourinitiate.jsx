@@ -8,7 +8,8 @@ import womenImg from "../../assets/images/page.png";
 const initiatives = [
   {
     title: "Education",
-    description: "Providing free education and scholarships for underprivileged children.",
+    description:
+      "Providing free education and scholarships for underprivileged children.",
     image: educationImg,
     route: "/education",
   },
@@ -26,7 +27,8 @@ const initiatives = [
   },
   {
     title: "Women Empowerment",
-    description: "Skill development programs to empower women for self-sufficiency.",
+    description:
+      "Skill development programs to empower women for self-sufficiency.",
     image: womenImg,
     route: "/womenempowerment",
   },
@@ -42,7 +44,6 @@ export default function Ourinitiate() {
           हमारी पहल
         </h2>
 
-        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
           {initiatives.map((item, index) => (
             <div

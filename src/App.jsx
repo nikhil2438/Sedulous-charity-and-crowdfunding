@@ -28,7 +28,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/ourinitiate" element={<Ourinitiate />} />
+        <Route path="/Our-initiative" element={<Ourinitiate />} />
         <Route path="/donationform" element={<DonationForm />} />
         <Route path="rtgs" element={<Rtgs />} />
         <Route path="/education" element={<Education />} />
@@ -38,7 +38,7 @@ function App() {
         <Route path="/fundraiser" element={<FundRaise />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/partner" element={<PartnerPage />} />
-        <Route path="/payment" element={<Payment/>} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </div>

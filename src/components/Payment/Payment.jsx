@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from "react";
+import logo1 from "../../assets/images/logo1.png";
 
 const Payment = () => {
   const [loading, setLoading] = useState(false);
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.onload = () => resolve(true);
       script.onerror = () => resolve(false);
       document.body.appendChild(script);
@@ -18,83 +19,88 @@ const Payment = () => {
 
     const res = await loadRazorpayScript();
     if (!res) {
-      alert('Failed to load Razorpay SDK. Please check your internet.');
+      alert("Failed to load Razorpay SDK. Please check your internet.");
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/razorpay/create-order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ amount: 1000000 }),
-      });
+      const response = await fetch(
+        "http://localhost:5000/api/razorpay/create-order",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ amount: 5000 }),
+        }
+      );
 
       const data = await response.json();
 
       if (!data.success) {
-        alert('Failed to create order.');
+        alert("Failed to create order.");
         setLoading(false);
         return;
       }
 
-      const { id: order_id, amount, currency } = data.order;
-
       const options = {
-        key: 'rzp_test_4dGSN3soiQbdOv',
-        amount,
-        currency,
-        name: 'Your Company Name',
-        description: 'Donation Payment',
-        order_id,
+        key: "rzp_test_4dGSN3soiQbdOv",
+        amount: data.order.amount,
+        currency: data.order.currency,
+        name: "माँ सिद्धेश्वरी चैरिटी ट्रस्ट",
+        image: logo1,
+        description: "Donation Payment",
+        order_id: data.order.id,
         handler: async (response) => {
           try {
-            const verifyRes = await fetch('http://localhost:5000/api/razorpay/verify-payment', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-                amount,
-              }),
-            });
+            const verifyRes = await fetch(
+              "http://localhost:5000/api/razorpay/verify-payment",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                  amount: data.order.amount,
+                }),
+              }
+            );
 
             const verifyData = await verifyRes.json();
 
             if (verifyData.success) {
-              alert('Payment Successful and Verified!');
+              alert("Payment Successful and Verified!");
             } else {
-              alert('Payment verification failed.');
+              alert("Payment verification failed.");
             }
           } catch (error) {
-            console.error('Verification API error:', error);
-            alert('Payment verification error.');
+            console.error("Verification API error:", error);
+            alert("Payment verification error.");
           }
           setLoading(false);
         },
         prefill: {
-          name: 'John Doe',
-          email: 'john.doe@example.com',
-          contact: '9999999999',
+          name: "John Doe",
+          email: "john.doe@example.com",
+          contact: "9999999999",
         },
         notes: {
-          address: 'Razorpay Corporate Office',
+          address: "Razorpay Corporate Office",
         },
         theme: {
-          color: '#3399cc',
+          color: "#3399cc",
         },
       };
 
       const rzp = new window.Razorpay(options);
       rzp.open();
     } catch (error) {
-      console.error('Order creation error:', error);
-      alert('Something went wrong. Please try again.');
+      console.error("Order creation error:", error);
+      alert("Something went wrong. Please try again.");
       setLoading(false);
     }
   };

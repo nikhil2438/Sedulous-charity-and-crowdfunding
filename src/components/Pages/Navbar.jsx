@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
-import Logo from "../../assets/images/Logo.png";
+import logo1 from "../../assets/images/logo1.png";
 import educationImg from "../../assets/images/education.jpg";
 import foodImg from "../../assets/images/Food.jpg";
 import healthcareImg from "../../assets/images/banner7.jpg";
@@ -81,7 +80,8 @@ const Navbar = () => {
           {
             pageLanguage: "en",
             includedLanguages: "en,hi",
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
           "google_translate_element"
         );
@@ -95,7 +95,8 @@ const Navbar = () => {
           {
             pageLanguage: "en",
             includedLanguages: "en,hi",
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
           "google_translate_element_mobile"
         );
@@ -165,17 +166,23 @@ const Navbar = () => {
       <div className="container mx-auto px-2 py-1 flex justify-between items-center">
         <Link to="/">
           <img
-            src={Logo}
+            src={logo1}
             alt="MA SIDISHWARI Logo"
-            className="object-contain h-48 w-48"
+            className="object-contain h-24 w-24"
           />
         </Link>
 
         <div className="hidden md:flex space-x-8 font-semibold tracking-wide items-center">
-          <Link to="/" className="text-gray-700 hover:text-orange-500 transition">
+          <Link
+            to="/"
+            className="text-gray-700 hover:text-orange-500 transition"
+          >
             Home
           </Link>
-          <Link to="/about" className="text-gray-700 hover:text-orange-500 transition">
+          <Link
+            to="/about"
+            className="text-gray-700 hover:text-orange-500 transition"
+          >
             About Us
           </Link>
 
@@ -185,7 +192,7 @@ const Navbar = () => {
               onClick={() => setShowDropdown((prev) => !prev)}
               className="text-gray-700 hover:text-orange-500 transition flex items-center gap-1"
             >
-              Our Initiate <ChevronDown size={16} />
+              Our Initiative <ChevronDown size={16} />
             </button>
             {showDropdown && (
               <div className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 w-48 z-50">
@@ -205,10 +212,16 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/events" className="text-gray-700 hover:text-orange-500 transition">
+          <Link
+            to="/events"
+            className="text-gray-700 hover:text-orange-500 transition"
+          >
             Events
           </Link>
-          <Link to="/gallery" className="text-gray-700 hover:text-orange-500 transition">
+          <Link
+            to="/gallery"
+            className="text-gray-700 hover:text-orange-500 transition"
+          >
             Gallery
           </Link>
         </div>
@@ -234,22 +247,30 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t shadow-lg">
-          {["/", "/about", "/events", "/gallery", "/DonationForm"].map((route, i) => {
-            const labels = ["Home", "About Us", "Events", "Gallery", "Donate"];
-            return (
-              <Link
-                key={route}
-                to={route}
-                className={`block px-6 py-3 ${
-                  i === 4
-                    ? "bg-orange-500 text-white text-center rounded-b-lg"
-                    : "text-orange-700 hover:bg-orange-100 transition"
-                }`}
-              >
-                {labels[i]}
-              </Link>
-            );
-          })}
+          {["/", "/about", "/events", "/gallery", "/DonationForm"].map(
+            (route, i) => {
+              const labels = [
+                "Home",
+                "About Us",
+                "Events",
+                "Gallery",
+                "Donate",
+              ];
+              return (
+                <Link
+                  key={route}
+                  to={route}
+                  className={`block px-6 py-3 ${
+                    i === 4
+                      ? "bg-orange-500 text-white text-center rounded-b-lg"
+                      : "text-orange-700 hover:bg-orange-100 transition"
+                  }`}
+                >
+                  {labels[i]}
+                </Link>
+              );
+            }
+          )}
 
           {/* Initiatives inside mobile menu */}
           <div className="px-6 pt-3 border-t">

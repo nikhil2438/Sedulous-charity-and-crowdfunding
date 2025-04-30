@@ -1,6 +1,7 @@
 import React from "react";
 import Footer1 from "../../assets/images/Footer1.jpg";
-import Logo from "../../assets/images/Logo.png";
+
+import logo1 from "../../assets/images/logo1.png";
 import {
   FaFacebookF,
   FaTwitter,
@@ -20,7 +21,7 @@ const Footer = () => {
         {/* Logo & About */}
         <div>
           <div className="mb-4">
-            <img src={Logo} alt="Trust Logo" className="w-24 h-24" />
+            <img src={logo1} alt="Trust Logo" className="w-24 h-24" />
           </div>
           <p className="text-sm leading-relaxed">
             कालातीत ज्ञान द्वारा निर्देशित, हमारा मंदिर विश्वास के एक बीकन के
