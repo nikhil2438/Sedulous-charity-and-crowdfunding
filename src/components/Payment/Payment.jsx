@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo1 from "../../assets/images/logo1.png"; // your local logo image
+import logo1 from "../../assets/images/logo1.png";
 
 const Payment = () => {
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ const Payment = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ amount: 5000 }), // Amount in paisa (5000 = ₹50)
+          body: JSON.stringify({ amount: 5000 }),
         }
       );
 
@@ -45,11 +45,11 @@ const Payment = () => {
       }
 
       const options = {
-        key: "rzp_test_4dGSN3soiQbdOv", // Replace with your actual key in production
+        key: "rzp_test_4dGSN3soiQbdOv",
         amount: data.order.amount,
         currency: data.order.currency,
         name: "माँ सिद्धेश्वरी चैरिटी ट्रस्ट",
-        image: logo1, // 👈 logo image added here
+        image: logo1,
         description: "Donation Payment",
         order_id: data.order.id,
         handler: async (response) => {
