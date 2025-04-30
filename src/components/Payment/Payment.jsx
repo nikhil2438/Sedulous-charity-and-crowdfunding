@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Payment = () => {
   const [loading, setLoading] = useState(false);
@@ -40,15 +40,15 @@ const Payment = () => {
         return;
       }
 
-      const { id: order_id, amount, currency } = data.order; 
+      const { id: order_id, amount, currency } = data.order;
 
       const options = {
-        key: 'rzp_test_4dGSN3soiQbdOv', 
-        amount: data.order.amount,
-        currency: data.order.currency,
+        key: 'rzp_test_4dGSN3soiQbdOv',
+        amount,
+        currency,
         name: 'Your Company Name',
         description: 'Donation Payment',
-        order_id: data.order.id,
+        order_id,
         handler: async (response) => {
           try {
             const verifyRes = await fetch('http://localhost:5000/api/razorpay/verify-payment', {
@@ -60,7 +60,7 @@ const Payment = () => {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,
-                amount: data.order.amount,
+                amount,
               }),
             });
 
@@ -99,23 +99,17 @@ const Payment = () => {
     }
   };
 
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      {loading ? (
-        <div className="flex flex-col items-center">
-          <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
-          <p className="mt-4 text-blue-500 font-semibold">Processing...</p>
-        </div>
-      ) : (
-        <button
-          onClick={handlePayment}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
-        >
-          Pay Now
-        </button>
-      )}
-    </div>
-  );
+  
+  useEffect(() => {
+    handlePayment();
+  }, []);
+
+  
+
+    
+
 };
 
+
 export default Payment;
+ 
