@@ -48,7 +48,7 @@ const Payment = () => {
         key: "rzp_test_4dGSN3soiQbdOv",
         amount: data.order.amount,
         currency: data.order.currency,
-        name: "माँ सिद्धेश्वरी चैरिटी ट्रस्ट",
+        name: "Maa Siddheshwari Charity Trust",
         image: logo1,
         description: "Donation Payment",
         order_id: data.order.id,

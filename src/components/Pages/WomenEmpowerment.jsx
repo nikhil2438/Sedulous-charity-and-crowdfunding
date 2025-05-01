@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import banner7 from "../../assets/images/banner7.jpg";
 import banner3 from "../../assets/images/banner3.jpg";
 import Healthcare3 from "../../assets/images/Healthcare3.jpg";
@@ -7,6 +7,15 @@ import Healthcare5 from "../../assets/images/Healthcare5.jpg";
 import DonationForm from "../DonationForm/DonationForm";
 
 const WomenEmpowerment = () => {
+  const [showDonationForm, setShowDonationForm] = useState(false);
+
+  const handleDonateClick = () => {
+    setShowDonationForm(true);
+    setTimeout(() => {
+      document.getElementById("donation-form")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
   return (
     <>
       <img
@@ -14,6 +23,7 @@ const WomenEmpowerment = () => {
         alt="Women Empowerment Banner"
         className="mx-auto w-full h-[500px] object-cover rounded-lg shadow-md"
       />
+
       <div className="mt-6 text-center px-6 sm:px-8">
         <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
           Empower Her. Empower Humanity. 💪🌸
@@ -37,6 +47,15 @@ const WomenEmpowerment = () => {
             become financially independent.
           </h1>
 
+          {!showDonationForm && (
+            <button
+              onClick={handleDonateClick}
+              className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition duration-300"
+            >
+              Donate Now
+            </button>
+          )}
+
           <img src={Healthcare3} alt="Workshops" className="h-auto w-full mt-10" />
           <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
             Awareness campaigns and workshops on rights, healthcare, and financial
@@ -57,14 +76,20 @@ const WomenEmpowerment = () => {
           </h1>
         </div>
 
-        <div className="bg-orange-500 px-4 sm:px-10 md:px-14 mt-20 mb-2 flex justify-center">
-          <div className="w-full max-w-sm sm:max-w-md">
-            <DonationForm />
+        {showDonationForm && (
+          <div
+            id="donation-form"
+            className="bg-orange-500 px-4 sm:px-10 md:px-14 mt-20 mb-2 flex justify-center"
+          >
+            <div className="w-full max-w-sm sm:max-w-md">
+              <DonationForm />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
 };
 
 export default WomenEmpowerment;
+ 

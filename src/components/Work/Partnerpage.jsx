@@ -6,7 +6,7 @@ const ContactAndPartner = () => {
   return (
     <div className="bg-orange-50">
 
-      {/* Partner Section */}
+      
       <section className="min-h-screen flex items-center justify-center px-6 py-16">
         <motion.div
           className="max-w-4xl w-full bg-white rounded-3xl shadow-xl p-10 md:p-14 text-center space-y-8"
