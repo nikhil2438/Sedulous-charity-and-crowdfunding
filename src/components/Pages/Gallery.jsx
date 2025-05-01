@@ -125,6 +125,8 @@ const Gallery = () => {
                   Next
                 </button>
               </div>
+
+               
             </Dialog.Content>
           </Dialog.Overlay>
         </Dialog.Portal>

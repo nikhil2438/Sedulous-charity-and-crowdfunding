@@ -64,7 +64,7 @@ const ContactAndPartner = () => {
         </motion.div>
       </section>
 
-      {/* Contact Section */}
+    
       <section className="min-h-screen flex items-center justify-center px-6 py-16 bg-orange-100">
         <motion.div
           className="max-w-3xl w-full bg-white rounded-3xl shadow-xl p-10 md:p-14 space-y-8"
