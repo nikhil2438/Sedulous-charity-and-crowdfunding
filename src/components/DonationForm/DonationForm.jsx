@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function DonationForm() {
   const [formData, setFormData] = useState({
@@ -7,30 +7,25 @@ function DonationForm() {
     contactNumber: "",
     address: "",
     reason: "",
-    amount:"",
+    amount: "",
   });
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]:name === "amount" ? Number(value) : value });
+    setFormData({
+      ...formData,
+      [name]: name === "amount" ? Number(value) : value,
+    });
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { fullName, contactNumber, address, reason, amount } = formData;
 
-    if (
-      !formData.fullName ||
-      !formData.contactNumber ||
-      !formData.address ||
-      !formData.reason ||
-      !amount ||
-      amount<=0
-    ) {
+    if (!fullName || !contactNumber || !address || !reason || !amount || amount <= 0) {
       alert("Please fill in all fields before proceeding.");
       return;
     }
@@ -62,7 +57,7 @@ function DonationForm() {
       });
 
       
-      navigate("/payment");
+      navigate("/payment", { state: { amount } });
 
     } catch (error) {
       console.log("Error submitting donation:", error);
