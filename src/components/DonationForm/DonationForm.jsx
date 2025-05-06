@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 function DonationForm() {
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
+    FullName: "",
+    ContactNumber: "",
+    Email: "",
     address: "",
-    fundraisingReason: "",
+    category: "",
     language: "",
-    estimatedCost: "",
+    amount: "",
   });
 
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function DonationForm() {
       ContactNumber: formData.phone,
       Email: formData.email,
       address: formData.address,
-      reason: formData.fundraisingReason,
+      category: formData.fundraisingReason,
       Language: formData.language,
       amount: Number(formData.estimatedCost),
     };
