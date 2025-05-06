@@ -11,9 +11,11 @@ const Education = () => {
 
   const handleDonateClick = () => {
     setShowDonationForm(true);
-    
+
     setTimeout(() => {
-      document.getElementById("donation-form")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("donation-form")
+        ?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
@@ -34,7 +36,8 @@ const Education = () => {
           better place together.
         </p>
         <p className="mt-2 text-gray-500 text-sm sm:text-base">
-          "Happiness doesn’t result from what we get, but from what we give." - Ben Carson
+          "Happiness doesn’t result from what we get, but from what we give." -
+          Ben Carson
         </p>
 
         {!showDonationForm && (
@@ -49,24 +52,25 @@ const Education = () => {
 
       <div className="flex flex-col md:flex-row items-center md:items-center">
         <div className="w-full md:w-1/2 h-[500px] md:h-screen overflow-y-auto hide-scrollbar px-4 sm:px-10">
-          
-          {[Educations7, Educations3, Educations, Educations8].map((img, index) => (
-            <div key={index}>
-              <img src={img} alt="Banner" className="h-auto w-full mt-10" />
-              <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
-                As a trustee of our temple trust fund, I am honored to serve and
-                uphold our sacred mission of preserving our temple’s heritage and
-                promoting its values of unity, compassion, and spiritual growth...
-              </h1>
-            </div>
-          ))}
+          {[Educations7, Educations3, Educations, Educations8].map(
+            (img, index) => (
+              <div key={index}>
+                <img src={img} alt="Banner" className="h-auto w-full mt-10" />
+                <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
+                  As a trustee of our temple trust fund, I am honored to serve
+                  and uphold our sacred mission of preserving our temple’s
+                  heritage and promoting its values of unity, compassion, and
+                  spiritual growth...
+                </h1>
+              </div>
+            )
+          )}
         </div>
 
-    
         {showDonationForm && (
           <div
             id="donation-form"
-            className="bg-orange-500 px-4 sm:px-10 md:px-14 mt-20 mb-2 flex justify-center"
+            className=" px-8 sm:px-10 md:px-14 mt-20 mb-2 flex justify-center"
           >
             <div className="w-full max-w-sm sm:max-w-md">
               <DonationForm />

@@ -1,129 +1,124 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function DonationForm() {
   const [formData, setFormData] = useState({
-    fullName: "",
-    contactNumber: "",
-    address: "",
-    reason: "",
-    amount: "",
+    name: "",
+    phone: "",
+    email: "",
+    address: "", // Address added here
+    fundraisingReason: "",
+    language: "",
+    estimatedCost: "",
   });
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: name === "amount" ? Number(value) : value,
-    });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    const { fullName, contactNumber, address, reason, amount } = formData;
-
-    if (!fullName || !contactNumber || !address || !reason || !amount || amount <= 0) {
-      alert("Please fill in all fields before proceeding.");
-      return;
-    }
-
-    try {
-      const response = await fetch("http://localhost:5000/api/donations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.log("Backend error:", errorData);
-        throw new Error(errorData.error || "Something went wrong");
-      }
-
-      console.log("Donation form submitted successfully!");
-
-      
-      setFormData({
-        fullName: "",
-        contactNumber: "",
-        address: "",
-        reason: "",
-        amount: "",
-      });
-
-      
-      navigate("/payment", { state: { amount } });
-
-    } catch (error) {
-      console.log("Error submitting donation:", error);
-      alert(`Failed to submit donation: ${error.message}`);
-    }
+    console.log("Form submitted:", formData);
+    // Add your API logic here
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold text-orange-600 mb-4 text-center">
-          Donation Registration
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg space-y-4"
+      >
+        <h2 className="text-xl font-semibold text-orange-500 text-center mb-4">
+          Maa Siddheshwari Charity Trust
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+        />
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone"
+          maxLength={10}
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+        />
+
+        <div>
+          <label className="text-sm font-semibold">
+            Why are you fundraising? *
+          </label>
+          <select
+            name="fundraisingReason"
+            value={formData.fundraisingReason}
             onChange={handleChange}
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <input
-            type="text"
-            name="contactNumber"
-            placeholder="Contact Number"
-            value={formData.contactNumber}
+            className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+          >
+            <option value="">Select Option</option>
+            <option value="Medical">HealthCare</option>
+            <option value="Education">Education</option>
+            <option value="Food">Food & Nutritious</option>
+            <option value="Women Empowerment">Women Empowerment</option>
+            <option value="Charity">Donation For Temple</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="text-sm font-semibold">Preferred Language</label>
+          <select
+            name="language"
+            value={formData.language}
             onChange={handleChange}
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <input
-            type="text"
-            name="address"
-            placeholder="Address"
-            value={formData.address}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <textarea
-            name="reason"
-            placeholder="Reason for Donation"
-            value={formData.reason}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
+            className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+          >
+            <option value="">Select Language</option>
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Tamil">Tamil</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="text-sm font-semibold">Estimated Cost (INR)</label>
           <input
             type="number"
-            name="amount"
-            placeholder="Donation Amount (INR)"
-            value={formData.amount}
+            name="estimatedCost"
+            value={formData.estimatedCost}
             onChange={handleChange}
+            className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            placeholder="Enter amount e.g. 500"
             min="1"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
+        </div>
 
-          <button
-            type="submit"
-            className="w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition duration-300"
-          >
-            Proceed to Payment
-          </button>
-        </form>
-      </div>
+        <button
+          type="submit"
+          className="w-full bg-orange-500 text-white py-3 rounded-md font-semibold hover:bg-orange-600 transition"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 }
 
 export default DonationForm;
- 

@@ -4,11 +4,10 @@ import logo1 from "../../assets/images/logo1.png";
 
 const Payment = () => {
   const [loading, setLoading] = useState(false);
-  const [amount, setAmount] = useState(0); 
+  const [amount, setAmount] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
-    
     if (location.state && location.state.amount) {
       setAmount(location.state.amount);
     }
@@ -41,13 +40,13 @@ const Payment = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/razorpay/create-order",
+        "http://localhost:3000/api/razorpay/create-order",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ amount: amount * 100 }), 
+          body: JSON.stringify({ amount: amount * 100 }),
         }
       );
 
@@ -60,17 +59,17 @@ const Payment = () => {
       }
 
       const options = {
-        key: "rzp_test_4dGSN3soiQbdOv", 
-        amount: data.order.amount, 
+        key: "rzp_test_4dGSN3soiQbdOv",
+        amount: data.order.amount,
         currency: data.order.currency,
-        name: "Maa Siddheshwari Charity Trust",
+        name: "माँ सिद्धेश्वरी चैरिटी ट्रस्ट",
         image: logo1,
         description: "Donation Payment",
         order_id: data.order.id,
         handler: async (response) => {
           try {
             const verifyRes = await fetch(
-              "http://localhost:5000/api/razorpay/verify-payment",
+              "http://localhost:3000/api/razorpay/verify-payment",
               {
                 method: "POST",
                 headers: {
@@ -129,7 +128,9 @@ const Payment = () => {
       </div>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Enter Amount</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Enter Amount
+        </label>
         <input
           type="number"
           value={amount}
@@ -149,7 +150,4 @@ const Payment = () => {
   );
 };
 
-
- 
- export default Payment;
- 
+export default Payment;
