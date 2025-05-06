@@ -5,7 +5,7 @@ function DonationForm() {
     name: "",
     phone: "",
     email: "",
-    address: "", // Address added here
+    address: "",
     fundraisingReason: "",
     language: "",
     estimatedCost: "",
@@ -19,10 +19,62 @@ function DonationForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your API logic here
+
+    const payload = {
+      FullName: formData.name,
+      ContactNumber: formData.phone,
+      Email: formData.email,
+      address: formData.address,
+      reason: formData.fundraisingReason,
+      Language: formData.language,
+      amount: Number(formData.estimatedCost),
+    };
+
+    // Validation
+    if (!/^[0-9]{10}$/.test(payload.ContactNumber)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+    if (payload.amount < 250) {
+      alert("Minimum donation amount is ₹250.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:3000/api/donations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Failed to submit donation.");
+      }
+
+      console.log("Donation submitted:", result);
+      alert("Donation submitted successfully!");
+
+      // Clear the form
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        address: "",
+        fundraisingReason: "",
+        language: "",
+        estimatedCost: "",
+      });
+    } catch (err) {
+      console.error("Submission error:", err);
+      alert("Error submitting donation: " + err.message);
+    }
   };
 
   return (
@@ -42,6 +94,7 @@ function DonationForm() {
           value={formData.name}
           onChange={handleChange}
           className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          required
         />
 
         <input
@@ -51,7 +104,8 @@ function DonationForm() {
           maxLength={10}
           value={formData.phone}
           onChange={handleChange}
-          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          required
         />
 
         <input
@@ -60,18 +114,30 @@ function DonationForm() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          required
+        />
+
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleChange}
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          required
         />
 
         <div>
           <label className="text-sm font-semibold">
-            Why are you fundraising? *
+            Why are you fundraising?
           </label>
           <select
             name="fundraisingReason"
             value={formData.fundraisingReason}
             onChange={handleChange}
-            className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+            className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
           >
             <option value="">Select Option</option>
             <option value="Medical">HealthCare</option>
@@ -88,7 +154,8 @@ function DonationForm() {
             name="language"
             value={formData.language}
             onChange={handleChange}
-            className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+            className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
           >
             <option value="">Select Language</option>
             <option value="English">English</option>
@@ -105,8 +172,8 @@ function DonationForm() {
             value={formData.estimatedCost}
             onChange={handleChange}
             className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            placeholder="Enter amount e.g. 500"
-            min="1"
+            placeholder="Enter amount"
+            required
           />
         </div>
 
