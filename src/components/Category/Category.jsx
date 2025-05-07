@@ -1,42 +1,36 @@
 import React from "react";
+import Footer1 from "../../assets/images/Footer1.jpg";
 
-const categories = [
-  { name: "Emergency", icon: "🚑" },
-  { name: "Child Health", icon: "👶" },
-  { name: "Cancer", icon: "🎗️" },
-  { name: "NGO Support", icon: "🤝" },
-  { name: "Hospital Aid", icon: "🏥" },
-  { name: " Organ Transplant", icon: "💉" },
-  { name: "Education", icon: "📚" },
-  { name: "Personal Cause", icon: "💖" },
-];
-
-const CategorySection = () => {
+const AboutSection = () => {
   return (
-    <section className="py-12 bg-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-red-600 mb-6 relative inline-block ">
-          Our Charity Categories
-          <span className="absolute left-1/2 -bottom-2 w-24 md:w-32 h-1 bg-gradient-to-r from-red-500 to-orange-400 transform -translate-x-1/2 rounded-full"></span>
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 justify-center">
-          {categories.map((category, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center w-full h-44 sm:h-48 bg-gradient-to-r from-red-500 to-orange-400 text-white rounded-xl shadow-xl p-4 sm:p-6  transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-            >
-              <span className="text-3xl sm:text-4xl  transition-transform duration-300 hover:scale-140">
-                {category.icon}
-              </span>
-              <h3 className="mt-2 text-sm sm:text-lg font-semibold">
-                {category.name}
-              </h3>
-            </div>
-          ))}
+    <section className="py-12 bg-red-300">
+      <div className="relative bg-white rounded-3xl shadow-lg overflow-hidden max-w-6xl mx-auto">
+      
+        <img
+          src={Footer1}
+          alt="About Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-100 transition duration-800 transform hover:scale-105"
+        />
+
+        
+        <div className="relative z-10 p-8 sm:p-12 text-center text-white">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-yellow-100 drop-shadow-lg">
+            हमारे बारे में
+          </h2>
+          <p className="text-lg sm:text-xl leading-relaxed font-medium">
+            माँ सिद्धेश्वरी चैरिटेबल ट्रस्ट भारतीय पारंपरिक ज्ञान प्रणाली सहित धर्म और
+            आध्यात्मिकता को आगे बढ़ाने पर काम करता है; हम जाति, पंथ, भाषा और धर्म से परे शिक्षा और
+            कौशल पर ध्यान केंद्रित करते हैं।
+            <br />
+            <br />
+            हम भारतीय संस्कृति और शैक्षिक विरासत को भी बढ़ावा देते हैं और समग्र दृष्टिकोण के साथ
+            लोगों के सामाजिक, आर्थिक, सांस्कृतिक और आध्यात्मिक विकास को प्रोत्साहित करने के लिए
+            परियोजनाएं चलाते हैं।
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default CategorySection;
+export default AboutSection;
