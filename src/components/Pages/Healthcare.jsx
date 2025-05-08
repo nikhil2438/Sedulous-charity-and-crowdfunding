@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import banner7 from "../../assets/images/banner7.jpg";
-import banner3 from "../../assets/images/banner3.jpg";
-import Healthcare3 from "../../assets/images/Healthcare3.jpg";
-import Healthcare4 from "../../assets/images/Healthcare4.jpg";
-import Healthcare5 from "../../assets/images/Healthcare5.jpg";
+import banner7 from "../../assets/images/medical1.jpg";
+import banner3 from "../../assets/images/medical2.jpg";
+import Healthcare3 from "../../assets/images/medical3.jpg";
+import Healthcare4 from "../../assets/images/medical4.jpg";
+import Healthcare5 from "../../assets/images/health5.jpg";
 import DonationForm from "../DonationForm/DonationForm";
 
 const Healthcare = () => {

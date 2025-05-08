@@ -1,6 +1,6 @@
 import React from "react";
 import educationImage from "../../assets/images/education.jpg";
-import banner7 from "../../assets/images/banner7.jpg";
+import medical3 from "../../assets/images/medical3.jpg";
 import FoodImage from "../../assets/images/Food.jpg";
 import { Link } from "react-router-dom";
 
@@ -11,13 +11,15 @@ const fundraisers = [
     image: educationImage,
     raised: 4500,
     goal: 10000,
+    path: "/education",
   },
   {
     id: 2,
-    title: "Support Cancer Patients",
-    image: banner7,
+    title: "Health",
+    image: medical3,
     raised: 7500,
     goal: 15000,
+    path: "/healthcare",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const fundraisers = [
     image: FoodImage,
     raised: 5000,
     goal: 12000,
+    path: "/food",
   },
 ];
 
@@ -37,9 +40,11 @@ const FeaturedFundraisers = () => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {fundraisers.map((fundraiser) => (
-            <div
+             <Link to = {fundraiser.path}
               key={fundraiser.id}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition"
+              className="block"
+              >
+             <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition"
             >
               <img
                 src={fundraiser.image}
@@ -65,9 +70,11 @@ const FeaturedFundraisers = () => {
                 </button>
               </Link>
             </div>
+            </Link>
           ))}
         </div>
       </div>
+      
     </section>
   );
 };

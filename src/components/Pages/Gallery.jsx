@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
@@ -12,40 +13,90 @@ import pop3 from "../../assets/images/pop3.jpg";
 import pop4 from "../../assets/images/pop4.jpg";
 import pop5 from "../../assets/images/pop5.jpg";
 import pop6 from "../../assets/images/pop6.jpg";
+import power1 from "../../assets/images/power1.jpg";
+import puja from "../../assets/images/puja.jpg";
+import puja2 from "../../assets/images/puja2.jpg";
+import puja3 from "../../assets/images/puja3.jpg";
+import puja4 from "../../assets/images/puja4.jpg";
+import puja5 from "../../assets/images/puja5.jpg";
+import puja6 from "../../assets/images/puja6.jpg";
+import puja7 from "../../assets/images/puja7.jpg";
+import defg from "../../assets/images/defg.jpg";
+import akashra from "../../assets/images/akashra.jpg";
 
-const images = [
-  { src: abc, title: "सत्य प्रकाश सिंह ने मुलाकात की, परम पूज्य स्वामी चिदानन्द सरस्वती जी।" },
-  { src: abc1, title: "सत्य प्रकाश सिंह ने मुलाकात की, स्वामी रामदेव बाबा" },
-  { src: abc2, title: "सत्य प्रकाश सिंह ने मुलाकात की, पद्मविभूषण स्वामी रामभद्राचार्य जी महाराज" },
-  { src: pop1, title: "सत्य प्रकाश सिंह ने मुलाकात की, श्रीमती द्रौपदी मुर्मू, भारत के माननीय राष्ट्रपति" },
-  { src: pop2, title: "सत्य प्रकाश सिंह ने मुलाकात की, श्री रामनाथ कोविंद, भारत के पूर्व राष्ट्रपति" },
-  { src: pop3, title: "सत्य प्रकाश सिंह ने मुलाकात की, श्री राजनाथ सिंह, माननीय रक्षा मंत्री, भारत सरकार" },
-  { src: pop4, title: "सत्य प्रकाश सिंह ने मुलाकात की, श्री रघुवर दास, ओडिशा के माननीय गवर्नर" },
-  { src: pop5, title: "सत्य प्रकाश सिंह ने मुलाकात की, श्री हेमन्त सोरेन, झारखंड के माननीय मुख्यमंत्री" },
-  { src: pop6, title: "सत्य प्रकाश सिंह ने मुलाकात की, श्री योगी आदित्यनाथ, उत्तर प्रदेश के माननीय मुख्यमंत्री" },
-];
+
+const categories = {
+  "मीडिया गैलरी": [
+    { src: puja, title: "पूजा" },
+    { src: puja2, title: "पूजा 2" },
+    { src: puja3, title: "पूजा 3" },
+    { src: puja4, title: "पूजा 4" },
+    { src: puja5, title: "पूजा 5" },
+    { src: puja6, title: "पूजा 6" },
+    { src: puja7, title: "पूजा 7" },
+  
+  ],
+  "वीडियो": [
+    { src: abc2, title: "स्वामी रामभद्राचार्य जी महाराज" },
+  ],
+  "मीडिया कवरेज": [
+    { src: pop1, title: "भारत के राष्ट्रपति श्रीमती द्रौपदी मुर्मू" },
+    { src: pop2, title: "पूर्व राष्ट्रपति श्री रामनाथ कोविंद" },
+  ],
+  "हस्तियाँ": [
+    { src: pop3, title: "रक्षा मंत्री श्री राजनाथ सिंह" },
+    { src: pop4, title: "ओडिशा के गवर्नर श्री रघुवर दास" },
+    { src: pop5, title: "झारखंड के मुख्यमंत्री श्री हेमन्त सोरेन" },
+  ],
+  "आध्यात्मिक गुरु": [
+    { src: pop6, title: "मुख्यमंत्री योगी आदित्यनाथ जी" },
+  ],
+};
 
 const Gallery = () => {
+  const [selectedCategory, setSelectedCategory] = useState("मीडिया गैलरी");
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  
+  const images = categories[selectedCategory];
+
   useEffect(() => {
     if (selectedImage) {
       const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setSelectedImage(images[(currentIndex + 1) % images.length]); 
-      }, 3000); 
-
+        const nextIndex = (currentIndex + 1) % images.length;
+        setCurrentIndex(nextIndex);
+        setSelectedImage(images[nextIndex]);
+      }, 3000);
       return () => clearInterval(interval);
     }
-  }, [selectedImage, currentIndex]);
+  }, [selectedImage, currentIndex, images]);
 
   return (
     <div className="min-h-screen bg-orange-50 p-6">
-      <h1 className="text-center text-3xl md:text-4xl font-bold text-orange-700 mb-6">
+      <h1 className="text-center text-3xl md:text-4xl font-bold text-orange-700 mb-4">
         Temple Gallery
       </h1>
+
+      
+      <div className="flex flex-wrap gap-3 justify-center mb-6">
+        {Object.keys(categories).map((cat) => (
+          <button
+            key={cat}
+            className={`px-4 py-2 rounded-md font-semibold text-sm md:text-base transition ${
+              selectedCategory === cat
+                ? "bg-orange-600 text-white"
+                : "bg-orange-200 text-orange-800 hover:bg-orange-300"
+            }`}
+            onClick={() => {
+              setSelectedCategory(cat);
+              setSelectedImage(null);
+              setCurrentIndex(0);
+            }}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -82,7 +133,6 @@ const Gallery = () => {
                 Click outside or press Esc to close
               </Dialog.Description>
 
-              
               <motion.img
                 key={selectedImage?.src}
                 src={selectedImage?.src}
@@ -94,10 +144,9 @@ const Gallery = () => {
                 transition={{ duration: 0.8 }}
               />
 
-              
               <div className="flex justify-between mt-4 space-x-2">
                 <button
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md text-sm md:text-base flex-1"
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md flex-1"
                   onClick={() => {
                     const prevIndex = (currentIndex - 1 + images.length) % images.length;
                     setCurrentIndex(prevIndex);
@@ -108,14 +157,14 @@ const Gallery = () => {
                 </button>
 
                 <button
-                  className="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-md text-sm md:text-base flex-1"
+                  className="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-md flex-1"
                   onClick={() => setSelectedImage(null)}
                 >
                   Close
                 </button>
 
                 <button
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md text-sm md:text-base flex-1"
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md flex-1"
                   onClick={() => {
                     const nextIndex = (currentIndex + 1) % images.length;
                     setCurrentIndex(nextIndex);
@@ -125,8 +174,6 @@ const Gallery = () => {
                   Next
                 </button>
               </div>
-
-               
             </Dialog.Content>
           </Dialog.Overlay>
         </Dialog.Portal>
