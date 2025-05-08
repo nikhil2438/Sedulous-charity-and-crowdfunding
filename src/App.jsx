@@ -17,6 +17,8 @@ import WomenEmpowerment from "./components/Pages/WomenEmpowerment";
 import Vision from "./components/DonationForm/Vision";
 import PartnerPage from "./components/Work/Partnerpage";
 import Payment from "./components/Payment/Payment";
+import UpcomingEvents from "./components/Pages/UpcomingEvents";
+import EventsHeld from "./components/Pages/EventsHeld";
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
         <Route path="/vision" element={<Vision />} />
         <Route path="/partner" element={<PartnerPage />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/upcoming-events" element={<UpcomingEvents />} />
+<Route path="/events-held" element={<EventsHeld />} />
       </Routes>
       <Footer />
     </div>

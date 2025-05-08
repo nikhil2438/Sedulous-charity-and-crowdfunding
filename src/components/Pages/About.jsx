@@ -1,5 +1,5 @@
 import React from "react";
-import templeImage from "../../assets/images/temple.jpg";
+import templeImage from "../../assets/images/temple1.jpg";
 import { FaBookOpen, FaPray, FaRing, FaYinYang } from "react-icons/fa";
 import { GiCow } from "react-icons/gi";
 
@@ -13,10 +13,10 @@ const About = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-orange-400 drop-shadow-lg mb-8 sm:mb-12">
-          माँ सिद्धेश्वरी चैरिटी ट्रस्ट
+          माँ सिद्धेश्वरी चैरिटेबल ट्रस्ट
         </h1>
 
-        {/* हमारे बारे में */}
+        
         <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-10 shadow-2xl border border-white/30">
           <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-4">
             हमारे बारे में
@@ -33,7 +33,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* उद्देश्य */}
+        
         <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-10 shadow-2xl border border-white/30">
           <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-6 text-center">
             🔱 हमारी संस्था का उद्देश्य 🔱

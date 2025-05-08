@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import charity1 from "../../assets/images/charity1.jpg";
 import charity2 from "../../assets/images/charity2.jpg";
 import charity3 from "../../assets/images/charity3.jpg";
@@ -27,22 +27,52 @@ const impactStats = [
 ];
 
 const galleryImages = [
-  { src: charity1, alt: "भोजन वितरण कार्यक्रम", caption: "जरूरतमंदों को खाना बाँटते हुए" },
-  { src: charity2, alt: "शिक्षा सहायता", caption: "बच्चों को स्टेशनरी और किताबें देते हुए" },
-  { src: charity3, alt: "स्वास्थ्य शिविर", caption: "निःशुल्क मेडिकल जांच" },
-  { src: charity4, alt: "सामुदायिक सेवा", caption: "गांवों में जागरूकता अभियान" },
-  { src: charity5, alt: "सर्दियों में राहत", caption: "कंबल और गर्म कपड़े बाँटते हुए" },
-  { src: charity6, alt: "बच्चों के साथ उत्सव", caption: "मिठाई वितरण और उत्सव का आनंद" },
+  { src: charity1, alt: "Gallery Image 1" },
+  { src: charity2, alt: "Gallery Image 2" },
+  { src: charity3, alt: "Gallery Image 3" },
+  { src: charity4, alt: "Gallery Image 4" },
+  { src: charity5, alt: "Gallery Image 5" },
+  { src: charity6, alt: "Gallery Image 6" },
 ];
 
 const AboutTrust = () => {
+  const [currentIndex, setCurrentIndex] = useState(null);
+
+  const openModal = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const closeModal = () => {
+    setCurrentIndex(null);
+  };
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  const handleSwipe = (e) => {
+    const touch = e.changedTouches[0];
+    const deltaX = touch.clientX - e.target.dataset.startX;
+    if (deltaX > 50) prevImage();
+    if (deltaX < -50) nextImage();
+  };
+
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    e.target.dataset.startX = touch.clientX;
+  };
+
   return (
     <section className="bg-white text-gray-800">
-      {/* Impact Section */}
+    
       <div className="py-16 bg-gradient-to-b from-white to-red-50 text-center">
         <h2 className="text-4xl font-bold text-red-700 mb-6">हमारा प्रभाव</h2>
         <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-12">
-          माँ सिद्धेश्वरी चैरिटेबल ट्रस्ट आपके सहयोग से समाज में बदलाव ला रहा है। जानिए हमने अब तक क्या कुछ किया है।
+          माँ सिद्धेश्वरी चैरिटेबल ट्रस्ट आपके सहयोग से समाज में बदलाव ला रहा है।
         </p>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
           {impactStats.map((item, index) => (
@@ -55,7 +85,7 @@ const AboutTrust = () => {
         </div>
       </div>
 
-      {/* Vision & Mission */}
+      
       <div className="py-16 bg-red-50 text-center px-4">
         <h2 className="text-4xl font-bold text-red-700 mb-6">हमारी दृष्टि और मिशन</h2>
         <div className="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed space-y-4">
@@ -63,17 +93,21 @@ const AboutTrust = () => {
             <strong>हमारी दृष्टि:</strong> एक ऐसे समाज का निर्माण करना जहाँ हर व्यक्ति को भोजन, शिक्षा और स्वास्थ्य की मूलभूत सुविधाएँ सुलभ हों।
           </p>
           <p>
-            <strong>हमारा मिशन:</strong> जरूरतमंदों की सहायता करना, बच्चों को शिक्षा प्रदान करना, स्वास्थ्य सेवाओं का विस्तार करना, और मानवता के लिए समर्पित रहना।
+            <strong>हमारा मिशन:</strong> जरूरतमंदों की सहायता करना, बच्चों को शिक्षा प्रदान करना, स्वास्थ्य सेवाओं का विस्तार करना।
           </p>
         </div>
       </div>
 
-      {/* Gallery */}
+      
       <div className="py-16 bg-white text-center px-4">
         <h2 className="text-4xl font-bold text-red-700 mb-10">हमारी झलकियाँ</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {galleryImages.map((image, index) => (
-            <div key={index} className="overflow-hidden rounded-xl shadow-lg group">
+            <div
+              key={index}
+              className="overflow-hidden rounded-xl shadow-lg group cursor-pointer"
+              onClick={() => openModal(index)}
+            >
               <img
                 src={image.src}
                 alt={image.alt}
@@ -85,6 +119,51 @@ const AboutTrust = () => {
           ))}
         </div>
       </div>
+
+    
+      {currentIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-3xl w-full px-4"
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleSwipe}
+          >
+            <button
+              className="absolute top-4 right-4 text-white text-3xl font-bold z-10"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+
+            <button
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-4xl px-2 z-10"
+            >
+              ❮
+            </button>
+
+            <button
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-4xl px-2 z-10"
+            >
+              ❯
+            </button>
+
+            <img
+              src={galleryImages[currentIndex].src}
+              alt={galleryImages[currentIndex].alt}
+              className="w-full max-h-[80vh] object-contain rounded-lg shadow-lg"
+            />
+            {galleryImages[currentIndex].caption && (
+              <p className="text-white text-center mt-4">{galleryImages[currentIndex].caption}</p>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
