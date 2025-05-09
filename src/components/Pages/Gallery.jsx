@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
 
-
 import abc from "../../assets/images/abc.jpg";
 import abc1 from "../../assets/images/abc1.jpg";
 import abc2 from "../../assets/images/abc2.jpg";
@@ -23,22 +22,12 @@ import puja6 from "../../assets/images/puja6.jpg";
 import puja7 from "../../assets/images/puja7.jpg";
 import defg from "../../assets/images/defg.jpg";
 import akashra from "../../assets/images/akashra.jpg";
-
+import mediaGalleryImages from "../../data/mediaGalleryImages";
 
 const categories = {
-  "मीडिया गैलरी": [
-    { src: puja, title: "पूजा" },
-    { src: puja2, title: "पूजा 2" },
-    { src: puja3, title: "पूजा 3" },
-    { src: puja4, title: "पूजा 4" },
-    { src: puja5, title: "पूजा 5" },
-    { src: puja6, title: "पूजा 6" },
-    { src: puja7, title: "पूजा 7" },
+  "मीडिया गैलरी": mediaGalleryImages, 
   
-  ],
-  "वीडियो": [
-    { src: abc2, title: "स्वामी रामभद्राचार्य जी महाराज" },
-  ],
+  
   "मीडिया कवरेज": [
     { src: pop1, title: "भारत के राष्ट्रपति श्रीमती द्रौपदी मुर्मू" },
     { src: pop2, title: "पूर्व राष्ट्रपति श्री रामनाथ कोविंद" },
@@ -77,7 +66,6 @@ const Gallery = () => {
         Temple Gallery
       </h1>
 
-      
       <div className="flex flex-wrap gap-3 justify-center mb-6">
         {Object.keys(categories).map((cat) => (
           <button
@@ -98,7 +86,6 @@ const Gallery = () => {
         ))}
       </div>
 
-      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {images.map((image, index) => (
           <motion.div
@@ -121,7 +108,6 @@ const Gallery = () => {
         ))}
       </div>
 
-      
       <Dialog.Root open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4">
@@ -133,6 +119,17 @@ const Gallery = () => {
                 Click outside or press Esc to close
               </Dialog.Description>
 
+              {selectedImage?.src.includes("http") ? (
+                <iframe
+                  src={selectedImage?.src}
+                  width="100%"
+                  height="400"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title={selectedImage?.title}
+                ></iframe>
+              ) : (
+
               <motion.img
                 key={selectedImage?.src}
                 src={selectedImage?.src}
@@ -143,6 +140,7 @@ const Gallery = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.8 }}
               />
+              )}
 
               <div className="flex justify-between mt-4 space-x-2">
                 <button

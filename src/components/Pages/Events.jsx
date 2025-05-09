@@ -21,7 +21,7 @@ const Event = () => {
 
   return (
     <>
-      {/* Banner Image */}
+    
       <div className="w-full">
         <img
           src={banner2}
@@ -30,10 +30,10 @@ const Event = () => {
         />
       </div>
 
-      {/* Event Section */}
+      
       <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-10 bg-amber-200">
         
-        {/* Toggle Buttons */}
+        
         <div className="flex gap-4 mb-10">
           <button
             onClick={() => handleNavigation("/upcoming-events")}
@@ -53,7 +53,7 @@ const Event = () => {
           </button>
         </div>
 
-        {/* Event 1 */}
+        
         <motion.div
           className="flex flex-col-reverse sm:flex-row items-center mb-16 w-full max-w-6xl rounded-3xl p-6 sm:p-10 bg-white shadow-xl"
           variants={fadeInUp}
@@ -81,7 +81,7 @@ const Event = () => {
           </div>
         </motion.div>
 
-        {/* Event 2 */}
+      
         <motion.div
           className="flex flex-col sm:flex-row items-center mb-16 w-full max-w-6xl rounded-3xl p-6 sm:p-10 bg-white shadow-xl"
           variants={fadeInUp}
@@ -109,7 +109,7 @@ const Event = () => {
           </div>
         </motion.div>
 
-        {/* Video Section */}
+        
         <motion.div
           className="w-full max-w-6xl mt-4 mb-12"
           variants={fadeInUp}

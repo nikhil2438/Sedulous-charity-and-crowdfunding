@@ -272,7 +272,7 @@ const Navbar = () => {
             }
           )}
 
-          {/* Initiatives inside mobile menu */}
+          
           <div className="px-6 pt-3 border-t">
             <span className="font-semibold text-orange-700">Our Initiate</span>
             {initiatives.map((item, index) => (
@@ -289,7 +289,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Language Switcher */}
+          
           <div className="px-6 py-3 border-t flex justify-between items-center">
             <span className="text-gray-700 font-medium">Language:</span>
             <select

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import page from "../../assets/images/page.png";
+
 
 import temple1 from "../../assets/images/temple1.jpg";
 import defg from "../../assets/images/defg.jpg";
-import puja4 from "../../assets/images/puja4.jpg";
+
 import charity5 from "../../assets/images/charity5.jpg";
 import puja7 from "../../assets/images/puja7.jpg";
 import poltics11 from "../../assets/images/poltics11.jpg";
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [page, temple1, defg, puja4, charity5, puja7 , poltics11];
+  const images = [ temple1, defg,  charity5, puja7 , poltics11];
 
   console.log("Images:", images);
 
@@ -47,7 +47,7 @@ const Slider = () => {
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center">

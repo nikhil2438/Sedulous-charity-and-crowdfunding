@@ -71,7 +71,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* ट्रस्टी का संदेश */}
+        
         <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-10 shadow-2xl border border-white/30">
           <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-4">
             ट्रस्टी का संदेश
@@ -87,7 +87,8 @@ const About = () => {
           </p>
         </div>
 
-        {/* हमारा नज़रिया */}
+      
+      
         <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/30">
           <h2 className="text-2xl sm:text-3xl font-semibold text-orange-300 mb-6 text-center">
             🌼 हमारा नज़रिया 🌼
