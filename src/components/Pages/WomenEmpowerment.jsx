@@ -18,6 +18,7 @@ const WomenEmpowerment = () => {
 
   return (
     <>
+      {/* Hero Section */}
       <img
         src={banner3}
         alt="Women Empowerment Banner"
@@ -38,10 +39,13 @@ const WomenEmpowerment = () => {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center md:items-start">
-        <div className="w-full md:w-1/2 h-[500px] md:h-screen overflow-y-auto hide-scrollbar px-4 sm:px-10">
-          <img src={banner7} alt="Women Training" className="h-auto w-full mt-10" />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
+      {/* Section 1 */}
+      <div className="mt-16 flex flex-col md:flex-row items-center px-4 sm:px-10">
+        <div className="md:w-1/2">
+          <img src={banner7} alt="Women Training" className="rounded-lg shadow-md w-full" />
+        </div>
+        <div className="md:w-1/2 mt-6 md:mt-0 md:pl-10">
+          <h1 className="text-lg leading-relaxed md:text-xl text-gray-800">
             We organize skill development programs that train women in tailoring,
             digital literacy, handicrafts, and entrepreneurship to help them
             become financially independent.
@@ -55,38 +59,60 @@ const WomenEmpowerment = () => {
               Donate Now
             </button>
           )}
+        </div>
+      </div>
 
-          <img src={Healthcare3} alt="Workshops" className="h-auto w-full mt-10" />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
+      {/* Section 2 */}
+      <div className="mt-16 flex flex-col md:flex-row-reverse items-center px-4 sm:px-10">
+        <div className="md:w-1/2">
+          <img src={Healthcare3} alt="Workshops" className="rounded-lg shadow-md w-full" />
+        </div>
+        <div className="md:w-1/2 mt-6 md:mt-0 md:pr-10">
+          <h1 className="text-lg leading-relaxed md:text-xl text-gray-800">
             Awareness campaigns and workshops on rights, healthcare, and financial
             literacy empower women to take control of their lives and decisions.
           </h1>
+        </div>
+      </div>
 
-          <img src={Healthcare4} alt="Support Circle" className="h-auto w-full mt-10" />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
+      {/* Section 3 */}
+      <div className="mt-16 flex flex-col md:flex-row items-center px-4 sm:px-10">
+        <div className="md:w-1/2">
+          <img src={Healthcare4} alt="Support Circle" className="rounded-lg shadow-md w-full" />
+        </div>
+        <div className="md:w-1/2 mt-6 md:mt-0 md:pl-10">
+          <h1 className="text-lg leading-relaxed md:text-xl text-gray-800">
             Our community groups provide a safe space for women to support each
             other, share experiences, and inspire change at the grassroots level.
           </h1>
+        </div>
+      </div>
 
-          <img src={Healthcare5} alt="Success Stories" className="h-auto w-full mt-10" />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
+      {/* Section 4 */}
+      <div className="mt-16 flex flex-col md:flex-row-reverse items-center px-4 sm:px-10">
+        <div className="md:w-1/2">
+          <img src={Healthcare5} alt="Success Stories" className="rounded-lg shadow-md w-full" />
+        </div>
+        <div className="md:w-1/2 mt-6 md:mt-0 md:pr-10">
+          <h1 className="text-lg leading-relaxed md:text-xl text-gray-800">
             Behind every empowered woman is a community that believed in her
             strength. Help us build that community by funding education,
             self-employment tools, and wellness programs.
           </h1>
         </div>
-
-        {showDonationForm && (
-          <div
-            id="donation-form"
-            className="bg-orange-500 px-4 sm:px-10 md:px-14 mt-20 mb-2 flex justify-center"
-          >
-            <div className="w-full max-w-sm sm:max-w-md">
-              <DonationForm />
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Donation Form */}
+      {showDonationForm && (
+        <div
+          id="donation-form"
+          className="bg-orange-500 px-4 sm:px-10 md:px-14 mt-20 mb-2 flex justify-center"
+        >
+          <div className="w-full max-w-sm sm:max-w-md">
+            <DonationForm />
+          </div>
+        </div>
+      )}
     </>
   );
 };

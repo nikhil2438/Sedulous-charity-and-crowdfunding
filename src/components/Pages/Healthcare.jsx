@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import banner7 from "../../assets/images/medical1.jpg";
-import banner3 from "../../assets/images/medical2.jpg";
-import Healthcare3 from "../../assets/images/medical3.jpg";
-import Healthcare4 from "../../assets/images/medical4.jpg";
-import Healthcare5 from "../../assets/images/health5.jpg";
+import banner from "../../assets/images/medical1.jpg";
+import image1 from "../../assets/images/medical2.jpg";
+import image2 from "../../assets/images/medical3.jpg";
+import image3 from "../../assets/images/medical4.jpg";
+import image4 from "../../assets/images/health5.jpg";
 import DonationForm from "../DonationForm/DonationForm";
 
 const Healthcare = () => {
@@ -20,99 +20,125 @@ const Healthcare = () => {
 
   return (
     <>
-      <img
-        src={banner7}
-        alt="Healthcare Banner"
-        className="mx-auto w-full h-[500px] object-cover rounded-lg shadow-md"
-      />
-
-      <div className="mt-6 text-center px-6 sm:px-8">
-        <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
-          Be the Lifeline Someone Needs 🏥❤️
-        </h2>
-        <p className="mt-4 text-gray-600 text-lg sm:text-xl">
-          Join us in delivering critical healthcare support to those who can't
-          afford it. Every donation helps provide medical aid, health camps, and
-          life-saving resources.
-        </p>
-        <p className="mt-2 text-gray-500 text-sm sm:text-base">
-          "The best way to find yourself is to lose yourself in the service of
-          others." – Mahatma Gandhi
-        </p>
+      {/* Hero Section */}
+      <div className="relative">
+        <img
+          src={banner}
+          alt="Healthcare Banner"
+          className="w-full h-[500px] object-cover rounded-lg shadow-md"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-center px-4">
+          <h1 className="text-4xl font-bold sm:text-5xl">
+            Be the Lifeline Someone Needs 🏥❤️
+          </h1>
+          <p className="mt-4 text-lg sm:text-xl max-w-3xl">
+            Help us bring healthcare to every doorstep. Your support fuels free
+            checkups, essential medicines, mobile clinics, and more.
+          </p>
+        </div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center md:items-center">
-        <div className="w-full md:w-1/2 h-[500px] md:h-screen overflow-y-auto hide-scrollbar px-4 sm:px-10">
-          <img
-            src={banner3}
-            alt="Health Service"
-            className="h-auto w-full mt-10"
-          />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
-            We believe that access to healthcare is a fundamental human right.
-            Through our initiatives, we organize free health camps, provide
-            essential medicines, and partner with hospitals and doctors to
-            deliver quality medical services to the underprivileged sections of
-            society.
-          </h1>
+      {/* Content Sections */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 space-y-20">
 
-          {!showDonationForm && (
-            <button
-              onClick={handleDonateClick}
-              className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition duration-300"
-            >
-              Donate Now
-            </button>
-          )}
-
+        {/* Block 1 */}
+        <div className="flex flex-col md:flex-row items-center gap-10">
           <img
-            src={Healthcare3}
-            alt="Health Check"
-            className="h-auto w-full mt-10"
+            src={image1}
+            alt="Medical Aid"
+            className="w-full md:w-1/2 rounded-lg shadow-lg"
           />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
-            Our volunteers and medical professionals work tirelessly to reach
-            remote areas and underserved communities. With mobile clinics and
-            health awareness programs, we ensure that preventive care reaches
-            those who need it most.
-          </h1>
-
-          <img
-            src={Healthcare4}
-            alt="Health Awareness"
-            className="h-auto w-full mt-10"
-          />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
-            Mental health is equally important. We also conduct counseling
-            sessions and workshops to promote mental well-being, especially for
-            students and the elderly. We strive to create a healthy society —
-            physically, mentally, and emotionally.
-          </h1>
-
-          <img
-            src={Healthcare5}
-            alt="Helping Patients"
-            className="h-auto w-full mt-10"
-          />
-          <h1 className="text-left mt-3 text-base leading-relaxed md:text-lg">
-            Your contribution can sponsor life-saving treatments, health
-            education programs, and ensure no one is left behind in their fight
-            for a healthier life. Help us build a future where healthcare is not
-            a luxury, but a basic right for all.
-          </h1>
+          <div className="text-base leading-relaxed text-gray-700 md:w-1/2">
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">Right to Healthcare</h2>
+            <p>
+              We believe access to healthcare is a fundamental human right. We
+              organize free health camps, provide essential medicines, and work
+              with hospitals and doctors to serve underprivileged communities.
+            </p>
+          </div>
         </div>
 
-        {showDonationForm && (
-          <div
-            id="donation-form"
-            className="bg-orange-500 px-4 sm:px-10 md:px-14 mt-20 mb-2 flex justify-center"
-          >
-            <div className="w-full max-w-sm sm:max-w-md">
-              <DonationForm />
-            </div>
+        {/* Block 2 */}
+        <div className="flex flex-col-reverse md:flex-row items-center gap-10">
+          <div className="text-base leading-relaxed text-gray-700 md:w-1/2">
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">Mobile Health Support</h2>
+            <p>
+              Our medical teams and volunteers bring mobile clinics to remote
+              and underserved areas, delivering checkups, treatment, and
+              preventive care directly where it's needed most.
+            </p>
           </div>
-        )}
+          <img
+            src={image2}
+            alt="Mobile Clinics"
+            className="w-full md:w-1/2 rounded-lg shadow-lg"
+          />
+        </div>
+
+        {/* Block 3 */}
+        <div className="flex flex-col md:flex-row items-center gap-10">
+          <img
+            src={image3}
+            alt="Mental Health"
+            className="w-full md:w-1/2 rounded-lg shadow-lg"
+          />
+          <div className="text-base leading-relaxed text-gray-700 md:w-1/2">
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">Mental Wellness Matters</h2>
+            <p>
+              We conduct counseling sessions and mental health workshops for
+              students, elders, and communities — fostering emotional strength
+              alongside physical wellness.
+            </p>
+          </div>
+        </div>
+
+        {/* Block 4 */}
+        <div className="flex flex-col-reverse md:flex-row items-center gap-10">
+          <div className="text-base leading-relaxed text-gray-700 md:w-1/2">
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">Every Life Deserves Care</h2>
+            <p>
+              Your donation sponsors critical treatments, educates about health,
+              and ensures that no one is left alone in their fight for survival
+              and well-being.
+            </p>
+          </div>
+          <img
+            src={image4}
+            alt="Helping Patients"
+            className="w-full md:w-1/2 rounded-lg shadow-lg"
+          />
+        </div>
       </div>
+
+      {/* Donation CTA */}
+      {!showDonationForm && (
+        <div className="text-center py-12 bg-orange-100">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Make a Difference?
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Every contribution goes directly toward improving lives.
+          </p>
+          <button
+            onClick={handleDonateClick}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
+          >
+            Donate Now
+          </button>
+        </div>
+      )}
+
+      {/* Donation Form */}
+      {showDonationForm && (
+        <div
+          id="donation-form"
+          className="bg-orange-500 px-4 sm:px-10 md:px-14 py-12 flex justify-center"
+        >
+          <div className="w-full max-w-sm sm:max-w-md">
+            <DonationForm />
+          </div>
+        </div>
+      )}
     </>
   );
 };

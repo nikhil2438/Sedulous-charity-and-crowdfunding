@@ -7,11 +7,12 @@ import defg from "../../assets/images/defg.jpg";
 import charity5 from "../../assets/images/charity5.jpg";
 import puja7 from "../../assets/images/puja7.jpg";
 import poltics11 from "../../assets/images/poltics11.jpg";
+import medical4  from "../../assets/images/medical4.jpg";
 import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [ temple1, defg,  charity5, puja7 , poltics11];
+  const images = [ temple1, defg,  charity5, puja7 , poltics11 , medical4];
 
   console.log("Images:", images);
 
@@ -37,7 +38,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-full h-[60vh] sm:h-screen overflow-hidden">
+    <div className="relative w-full h-[50vh] sm:h-screen overflow-hidden">
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -47,7 +48,7 @@ const Slider = () => {
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-contain"
+              className="w-full h-[90vh] object-cover"
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center">

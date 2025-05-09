@@ -19,7 +19,7 @@ const FoodAndNutrition = () => {
 
   return (
     <>
-      {/* Hero Section */}
+      
       <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full">
         <img
           src={banner7}
@@ -38,14 +38,14 @@ const FoodAndNutrition = () => {
         </div>
       </div>
 
-      {/* Quote */}
+      
       <div className="text-center mt-6 px-4">
         <p className="text-gray-600 text-sm sm:text-base italic">
           "If you can’t feed a hundred people, then feed just one." – Mother Teresa
         </p>
       </div>
 
-      {/* Alternating Content Blocks */}
+      
       <section className="mt-10 max-w-6xl mx-auto space-y-12 px-4">
         {[
           {
@@ -81,7 +81,7 @@ const FoodAndNutrition = () => {
         ))}
       </section>
 
-      {/* Donate Now Button */}
+    
       {!showDonationForm && (
         <div className="text-center mt-12">
           <button
@@ -93,7 +93,7 @@ const FoodAndNutrition = () => {
         </div>
       )}
 
-      {/* Donation Form Section */}
+      
       {showDonationForm && (
         <div
           id="donation-form"

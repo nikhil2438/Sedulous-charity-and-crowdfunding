@@ -27,7 +27,7 @@ const fundraisers = [
     image: FoodImage,
     raised: 5000,
     goal: 12000,
-    path: "/food",
+    path: "/food&nutrition",
   },
 ];
 
