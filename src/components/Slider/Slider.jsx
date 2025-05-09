@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import page from "../../assets/images/page.png";
 
-import temple1 from "../../assets/images/temple1.jpg";
 import defg from "../../assets/images/defg.jpg";
 import puja4 from "../../assets/images/puja4.jpg";
 import charity5 from "../../assets/images/charity5.jpg";
@@ -11,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [page, temple1, defg, puja4, charity5, puja7 , poltics11];
+  const images = [defg, puja4, charity5, puja7, poltics11];
 
   console.log("Images:", images);
 
@@ -58,17 +56,16 @@ const Slider = () => {
                 Making a difference, one step at a time.
               </p>
               <div className="space-x-4">
-                <Link to ="/vision">
-                <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-700 transition">
-                  Read More
-                </button>
+                <Link to="/vision">
+                  <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-700 transition">
+                    Read More
+                  </button>
                 </Link>
                 <Link to="/donationForm">
                   <button className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-800 transition">
                     Donate Now
                   </button>
                 </Link>
-
               </div>
             </div>
           </div>
