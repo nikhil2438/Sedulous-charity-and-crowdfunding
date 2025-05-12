@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Poojaimage1 from "../../assets/images/Poojaimage1.jpeg";
+import Poojaimage4 from "../../assets/images/Poojaimage4.jpeg";
+import Poojaimage3 from "../../assets/images/Poojaimage3.jpeg";
+import Poojaimage2 from "../../assets/images/Poojaimage2.jpeg";
+import Medical5 from "../../assets/images/Medical5.jpeg";
 
-import temple1 from "../../assets/images/temple1.jpg";
-import defg from "../../assets/images/defg.jpg";
-import charity5 from "../../assets/images/charity5.jpg";
-import puja7 from "../../assets/images/puja7.jpg";
-import poltics11 from "../../assets/images/poltics11.jpg";
-import medical4 from "../../assets/images/medical4.jpg";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [temple1, defg, charity5, puja7, poltics11, medical4];
+  const images = [Poojaimage1, Poojaimage4, Poojaimage3, Poojaimage2, Medical5];
+
+  console.log("Images:", images);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,11 +41,11 @@ const Slider = () => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="min-w-full h-full relative">
+          <div key={index} className="min-w-full h-full">
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full   object-cover"
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center">
