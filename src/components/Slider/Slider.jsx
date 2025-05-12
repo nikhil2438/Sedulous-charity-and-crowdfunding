@@ -3,16 +3,17 @@ import React, { useState, useEffect } from "react";
 
 import temple1 from "../../assets/images/temple1.jpg";
 import defg from "../../assets/images/defg.jpg";
-
+import banner2 from "../../assets/images/banner2.jpg";
 import charity5 from "../../assets/images/charity5.jpg";
 import puja7 from "../../assets/images/puja7.jpg";
 import poltics11 from "../../assets/images/poltics11.jpg";
 import medical4  from "../../assets/images/medical4.jpg";
+
 import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [ temple1, defg,  charity5, puja7 , poltics11 , medical4];
+  const images = [ temple1,banner2, defg,  puja7  , medical4];
 
   console.log("Images:", images);
 
@@ -44,11 +45,11 @@ const Slider = () => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="min-w-full h-full">
+          <div key={index} className="min-w-full h-[500px] flex justify-center items-center bg-black">
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-[90vh] object-cover"
+              className="w-full h-auto object-cover max-h-[500px]"
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center">
