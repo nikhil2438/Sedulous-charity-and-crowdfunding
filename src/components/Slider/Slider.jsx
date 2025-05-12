@@ -35,13 +35,13 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-full h-[50vh] sm:h-screen overflow-hidden">
+    <div className="relative w-full h-full sm:h-screen overflow-hidden">
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="min-w-full h-[500px] flex justify-center items-center bg-black">
+          <div key={index} className="min-w-full h-full flex justify-center items-center bg-black">
             <img
               src={image}
               alt={`Slide ${index + 1}`}
