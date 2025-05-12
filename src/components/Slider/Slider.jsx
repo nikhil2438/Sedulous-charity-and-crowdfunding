@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-
-
-import temple1 from "../../assets/images/temple1.jpg";
-import defg from "../../assets/images/defg.jpg";
-import banner2 from "../../assets/images/banner2.jpg";
-import charity5 from "../../assets/images/charity5.jpg";
-import puja7 from "../../assets/images/puja7.jpg";
-import poltics11 from "../../assets/images/poltics11.jpg";
-import medical4  from "../../assets/images/medical4.jpg";
+import Poojaimage1 from "../../assets/images/Poojaimage1.jpeg";
+import Poojaimage4 from "../../assets/images/Poojaimage4.jpeg";
+import Poojaimage3 from "../../assets/images/Poojaimage3.jpeg";
+import Poojaimage2 from "../../assets/images/Poojaimage2.jpeg";
+import Medical5 from "../../assets/images/Medical5.jpeg";
 
 import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [ temple1,banner2, defg,  puja7  , medical4];
+  const images = [Poojaimage1, Poojaimage4, Poojaimage3, Poojaimage2, Medical5];
 
   console.log("Images:", images);
 
@@ -49,7 +45,7 @@ const Slider = () => {
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-auto object-cover max-h-[500px]"
+              className="w-full   object-cover"
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center">
@@ -60,17 +56,16 @@ const Slider = () => {
                 Making a difference, one step at a time.
               </p>
               <div className="space-x-4">
-                <Link to ="/vision">
-                <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-700 transition">
-                  Read More
-                </button>
+                <Link to="/vision">
+                  <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-700 transition">
+                    Read More
+                  </button>
                 </Link>
                 <Link to="/donationForm">
                   <button className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-800 transition">
                     Donate Now
                   </button>
                 </Link>
-
               </div>
             </div>
           </div>

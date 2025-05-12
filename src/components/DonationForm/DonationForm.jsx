@@ -63,7 +63,6 @@ function DonationForm() {
       console.log("Donation submitted:", result);
       alert("Donation info saved. Redirecting to payment...");
 
-      
       navigate("/payment", {
         state: { amount: payload.amount },
       });
