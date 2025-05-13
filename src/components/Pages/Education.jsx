@@ -19,7 +19,7 @@ const Education = () => {
 
   return (
     <>
-      {/* Hero Section */}
+
       <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full">
         <img
           src={Educations4}
@@ -38,14 +38,14 @@ const Education = () => {
         </div>
       </div>
 
-      {/* Quote */}
+  
       <div className="text-center mt-6 px-4">
         <p className="text-gray-600 text-sm sm:text-base italic">
           "Education is the most powerful weapon which you can use to change the world." – Nelson Mandela
         </p>
       </div>
 
-      {/* Alternating Content Blocks */}
+    
       <section className="mt-10 max-w-6xl mx-auto space-y-12 px-4">
         {[
           {
@@ -81,19 +81,25 @@ const Education = () => {
         ))}
       </section>
 
-      {/* Donate Now Button */}
+      
       {!showDonationForm && (
-        <div className="text-center mt-12">
+        <div className="text-center py-12 bg-orange-100">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Make a Difference?
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Every contribution goes directly toward improving lives.
+          </p>
           <button
             onClick={handleDonateClick}
-            className="bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg transition duration-300"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
           >
             Donate Now
           </button>
         </div>
       )}
 
-      {/* Donation Form Section */}
+      
       {showDonationForm && (
         <div
           id="donation-form"

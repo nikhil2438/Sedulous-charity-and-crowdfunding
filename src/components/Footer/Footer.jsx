@@ -1,6 +1,5 @@
 import React from "react";
 import Footer1 from "../../assets/images/Footer1.jpg";
-
 import logo1 from "../../assets/images/logo1.png";
 import {
   FaFacebookF,
@@ -14,11 +13,10 @@ import {
 const Footer = () => {
   return (
     <footer
-      className="text-white pt-10 pb-4 px-6 md:px-20 bg-cover bg-center"
+      className="text-red pt-10 pb-4 px-6 md:px-20 bg-cover bg-center"
       style={{ backgroundImage: `url(${Footer1})` }}
     >
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 bg-black/40 p-6 rounded-lg">
-        {/* Logo & About */}
         <div>
           <div className="mb-4">
             <img src={logo1} alt="Trust Logo" className="w-24 h-24" />
@@ -29,16 +27,51 @@ const Footer = () => {
             विश्वास का पोषण करता है।
           </p>
           <div className="flex gap-3 mt-4">
-            <FaFacebookF className="bg-white text-blue-600 p-2 w-8 h-8 rounded-full" />
-            <FaTwitter className="bg-white text-blue-400 p-2 w-8 h-8 rounded-full" />
-            <FaYoutube className="bg-white text-red-600 p-2 w-8 h-8 rounded-full" />
-            <FaLinkedinIn className="bg-white text-blue-700 p-2 w-8 h-8 rounded-full" />
-            <FaInstagram className="bg-white text-pink-500 p-2 w-8 h-8 rounded-full" />
-            <FaPinterestP className="bg-white text-red-500 p-2 w-8 h-8 rounded-full" />
+            <a
+              href="https://www.facebook.com/maasiddheshwaricharitabletrust"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF className="bg-white text-blue-600 p-2 w-8 h-8 rounded-full" />
+            </a>
+            <a
+              href="https://x.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter className="bg-white text-blue-400 p-2 w-8 h-8 rounded-full" />
+            </a>
+            <a
+              href="https://www.youtube.com/@MAASIDESHWARICHARITABLETRUST"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube className="bg-white text-red-600 p-2 w-8 h-8 rounded-full" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/maa-siddheswari-charitable-trust/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn className="bg-white text-blue-700 p-2 w-8 h-8 rounded-full" />
+            </a>
+            <a
+              href="https://www.instagram.com/msct_official_1/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="bg-white text-pink-500 p-2 w-8 h-8 rounded-full" />
+            </a>
+            <a
+              href="https://in.pinterest.com/msctofficial/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaPinterestP className="bg-white text-red-500 p-2 w-8 h-8 rounded-full" />
+            </a>
           </div>
         </div>
 
-        {/* Quick Links */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
@@ -50,7 +83,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Policy & Newsletter */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Privacy Policy</h3>
           <ul className="space-y-2 text-sm">
@@ -74,7 +106,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Us */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <p className="text-sm">
@@ -101,7 +132,7 @@ const Footer = () => {
         <p>©2025 Maa Siddheshwari Trust. All Rights Reserved.</p>
         <p>
           Developed & Designed By{" "}
-          <span className="font-semibold text-green-200">SearchingYug</span>
+          <span className="font-semibold text-green-200">Sedulous Softech</span>
         </p>
       </div>
     </footer>

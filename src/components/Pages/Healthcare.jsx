@@ -38,10 +38,10 @@ const Healthcare = () => {
         </div>
       </div>
 
-      {/* Content Sections */}
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 space-y-20">
 
-        {/* Block 1 */}
+        
         <div className="flex flex-col md:flex-row items-center gap-10">
           <img
             src={image1}
@@ -58,7 +58,7 @@ const Healthcare = () => {
           </div>
         </div>
 
-        {/* Block 2 */}
+        
         <div className="flex flex-col-reverse md:flex-row items-center gap-10">
           <div className="text-base leading-relaxed text-gray-700 md:w-1/2">
             <h2 className="text-2xl font-semibold text-orange-600 mb-4">Mobile Health Support</h2>
@@ -75,7 +75,7 @@ const Healthcare = () => {
           />
         </div>
 
-        {/* Block 3 */}
+        
         <div className="flex flex-col md:flex-row items-center gap-10">
           <img
             src={image3}
@@ -92,7 +92,7 @@ const Healthcare = () => {
           </div>
         </div>
 
-        {/* Block 4 */}
+        
         <div className="flex flex-col-reverse md:flex-row items-center gap-10">
           <div className="text-base leading-relaxed text-gray-700 md:w-1/2">
             <h2 className="text-2xl font-semibold text-orange-600 mb-4">Every Life Deserves Care</h2>
@@ -110,7 +110,7 @@ const Healthcare = () => {
         </div>
       </div>
 
-      {/* Donation CTA */}
+    
       {!showDonationForm && (
         <div className="text-center py-12 bg-orange-100">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -128,7 +128,7 @@ const Healthcare = () => {
         </div>
       )}
 
-      {/* Donation Form */}
+      
       {showDonationForm && (
         <div
           id="donation-form"

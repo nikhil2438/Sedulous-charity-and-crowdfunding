@@ -83,10 +83,16 @@ const FoodAndNutrition = () => {
 
     
       {!showDonationForm && (
-        <div className="text-center mt-12">
+        <div className="text-center py-12 bg-orange-100">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Make a Difference?
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Every contribution goes directly toward improving lives.
+          </p>
           <button
             onClick={handleDonateClick}
-            className="bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg transition duration-300"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
           >
             Donate Now
           </button>

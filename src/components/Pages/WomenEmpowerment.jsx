@@ -17,8 +17,7 @@ const WomenEmpowerment = () => {
   };
 
   return (
-    <>
-      {/* Hero Section */}
+    <div>
       <img
         src={banner3}
         alt="Women Empowerment Banner"
@@ -39,7 +38,7 @@ const WomenEmpowerment = () => {
         </p>
       </div>
 
-      {/* Section 1 */}
+    
       <div className="mt-16 flex flex-col md:flex-row items-center px-4 sm:px-10">
         <div className="md:w-1/2">
           <img src={banner7} alt="Women Training" className="rounded-lg shadow-md w-full" />
@@ -50,19 +49,10 @@ const WomenEmpowerment = () => {
             digital literacy, handicrafts, and entrepreneurship to help them
             become financially independent.
           </h1>
-
-          {!showDonationForm && (
-            <button
-              onClick={handleDonateClick}
-              className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition duration-300"
-            >
-              Donate Now
-            </button>
-          )}
         </div>
       </div>
 
-      {/* Section 2 */}
+      
       <div className="mt-16 flex flex-col md:flex-row-reverse items-center px-4 sm:px-10">
         <div className="md:w-1/2">
           <img src={Healthcare3} alt="Workshops" className="rounded-lg shadow-md w-full" />
@@ -75,7 +65,7 @@ const WomenEmpowerment = () => {
         </div>
       </div>
 
-      {/* Section 3 */}
+      
       <div className="mt-16 flex flex-col md:flex-row items-center px-4 sm:px-10">
         <div className="md:w-1/2">
           <img src={Healthcare4} alt="Support Circle" className="rounded-lg shadow-md w-full" />
@@ -88,7 +78,7 @@ const WomenEmpowerment = () => {
         </div>
       </div>
 
-      {/* Section 4 */}
+    
       <div className="mt-16 flex flex-col md:flex-row-reverse items-center px-4 sm:px-10">
         <div className="md:w-1/2">
           <img src={Healthcare5} alt="Success Stories" className="rounded-lg shadow-md w-full" />
@@ -102,7 +92,25 @@ const WomenEmpowerment = () => {
         </div>
       </div>
 
-      {/* Donation Form */}
+      
+      {!showDonationForm && (
+        <div className="text-center py-12 bg-orange-100 mt-20">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Make a Difference?
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Every contribution goes directly toward improving lives.
+          </p>
+          <button
+            onClick={handleDonateClick}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
+          >
+            Donate Now
+          </button>
+        </div>
+      )}
+
+    
       {showDonationForm && (
         <div
           id="donation-form"
@@ -113,9 +121,8 @@ const WomenEmpowerment = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
 export default WomenEmpowerment;
- 
