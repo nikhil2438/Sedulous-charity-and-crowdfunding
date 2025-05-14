@@ -26,13 +26,13 @@ function DonationForm() {
     e.preventDefault();
 
     const payload = {
-      FullName: formData.name,
-      ContactNumber: formData.phone,
-      Email: formData.email,
+      FullName: formData.FullName,
+      ContactNumber: formData.ContactNumber,
+      Email: formData.Email,
       address: formData.address,
-      category: formData.fundraisingReason,
+      category: formData.category,
       Language: formData.language,
-      amount: Number(formData.estimatedCost),
+      amount: Number(formData.amount),
     };
 
     if (!/^[0-9]{10}$/.test(payload.ContactNumber)) {
@@ -41,12 +41,12 @@ function DonationForm() {
     }
 
     if (payload.amount < 250) {
-      alert("Minimum donation amount is ₹250.");
+      alert("Minimun donation amount is ₹250.");
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/donations", {
+      const res = await fetch("http://localhost:5000/api/donations", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,9 +84,9 @@ function DonationForm() {
 
         <input
           type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
+          name="FullName"
+          placeholder="Full Name"
+          value={formData.FullName}
           onChange={handleChange}
           className="w-full p-3 border rounded-md"
           required
@@ -94,10 +94,10 @@ function DonationForm() {
 
         <input
           type="tel"
-          name="phone"
+          name="ContactNumber"
           placeholder="Phone"
           maxLength={10}
-          value={formData.phone}
+          value={formData.ContactNumber}
           onChange={handleChange}
           className="w-full p-3 border rounded-md"
           required
@@ -105,9 +105,9 @@ function DonationForm() {
 
         <input
           type="email"
-          name="email"
+          name="Email"
           placeholder="Email"
-          value={formData.email}
+          value={formData.Email}
           onChange={handleChange}
           className="w-full p-3 border rounded-md"
           required
@@ -124,16 +124,16 @@ function DonationForm() {
         />
 
         <select
-          name="fundraisingReason"
-          value={formData.fundraisingReason}
+          name="category"
+          value={formData.category}
           onChange={handleChange}
           className="w-full p-3 border rounded-md"
           required
         >
           <option value="">Select Option</option>
-          <option value="Medical">HealthCare</option>
+          <option value="Medical">Healthcare</option>
           <option value="Education">Education</option>
-          <option value="Food">Food & Nutritious</option>
+          <option value="Food">Food&Nutritious</option>
           <option value="Women Empowerment">Women Empowerment</option>
           <option value="Charity">Donation For Temple</option>
         </select>
@@ -153,9 +153,9 @@ function DonationForm() {
 
         <input
           type="number"
-          name="estimatedCost"
-          placeholder="Estimated Cost"
-          value={formData.estimatedCost}
+          name="amount"
+          placeholder="Donation Amount (₹)"
+          value={formData.amount}
           onChange={handleChange}
           className="w-full p-3 border rounded-md"
           required
@@ -173,3 +173,4 @@ function DonationForm() {
 }
 
 export default DonationForm;
+ 

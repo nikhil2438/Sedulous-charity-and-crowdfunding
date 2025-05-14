@@ -40,7 +40,7 @@ const Payment = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/razorpay/create-order",
+        "http://localhost:5000/api/razorpay/create-order",
         {
           method: "POST",
           headers: {
