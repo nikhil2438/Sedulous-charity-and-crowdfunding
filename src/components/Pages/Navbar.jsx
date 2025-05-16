@@ -9,33 +9,19 @@ import womenImg from "../../assets/images/page.png";
 import "../Pages/navbar.css";
 
 const initiatives = [
-  {
-    title: "Education",
-    route: "/education",
-    image: educationImg,
-  },
-  {
-    title: "Food & Nutrition",
-    route: "/food&nutrition",
-    image: foodImg,
-  },
-  {
-    title: "Healthcare",
-    route: "/healthcare",
-    image: healthcareImg,
-  },
-  {
-    title: "Women Empowerment",
-    route: "/womenempowerment",
-    image: womenImg,
-  },
+  { title: "Education", route: "/education", image: educationImg },
+  { title: "Food & Nutrition", route: "/food&nutrition", image: foodImg },
+  { title: "Healthcare", route: "/healthcare", image: healthcareImg },
+  { title: "Women Empowerment", route: "/womenempowerment", image: womenImg },
 ];
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState("en");
-  const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef(null);
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const desktopDropdownRef = useRef(null);
+  const mobileDropdownRef = useRef(null);
   const navigate = useNavigate();
 
   const handleLanguageChange = (lang) => {
@@ -80,8 +66,7 @@ const Navbar = () => {
           {
             pageLanguage: "en",
             includedLanguages: "en,hi",
-            layout:
-              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
           "google_translate_element"
         );
@@ -95,8 +80,7 @@ const Navbar = () => {
           {
             pageLanguage: "en",
             includedLanguages: "en,hi",
-            layout:
-              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
           "google_translate_element_mobile"
         );
@@ -149,8 +133,17 @@ const Navbar = () => {
     });
 
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false);
+      if (
+        desktopDropdownRef.current &&
+        !desktopDropdownRef.current.contains(event.target)
+      ) {
+        setDesktopDropdownOpen(false);
+      }
+      if (
+        mobileDropdownRef.current &&
+        !mobileDropdownRef.current.contains(event.target)
+      ) {
+        setMobileDropdownOpen(false);
       }
     };
 
@@ -173,35 +166,28 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex space-x-8 font-semibold tracking-wide items-center">
-          <Link
-            to="/"
-            className="text-gray-700 hover:text-orange-500 transition"
-          >
+          <Link to="/" className="text-gray-700 hover:text-orange-500 transition">
             Home
           </Link>
-          <Link
-            to="/about"
-            className="text-gray-700 hover:text-orange-500 transition"
-          >
+          <Link to="/about" className="text-gray-700 hover:text-orange-500 transition">
             About Us
           </Link>
 
-          {/* Our Initiate Dropdown */}
-          <div className="relative group" ref={dropdownRef}>
+          <div className="relative group" ref={desktopDropdownRef}>
             <button
-              onClick={() => setShowDropdown((prev) => !prev)}
+              onClick={() => setDesktopDropdownOpen((prev) => !prev)}
               className="text-gray-700 hover:text-orange-500 transition flex items-center gap-1"
             >
               Our Initiative <ChevronDown size={16} />
             </button>
-            {showDropdown && (
+            {desktopDropdownOpen && (
               <div className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 w-48 z-50">
                 {initiatives.map((item, index) => (
                   <button
                     key={index}
                     onClick={() => {
                       navigate(item.route);
-                      setShowDropdown(false);
+                      setDesktopDropdownOpen(false);
                     }}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100"
                   >
@@ -212,16 +198,10 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link
-            to="/events"
-            className="text-gray-700 hover:text-orange-500 transition"
-          >
+          <Link to="/events" className="text-gray-700 hover:text-orange-500 transition">
             Events
           </Link>
-          <Link
-            to="/gallery"
-            className="text-gray-700 hover:text-orange-500 transition"
-          >
+          <Link to="/gallery" className="text-gray-700 hover:text-orange-500 transition">
             Gallery
           </Link>
         </div>
@@ -244,7 +224,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t shadow-lg">
           {["/", "/about", "/events", "/gallery", "/DonationForm"].map(
@@ -265,6 +244,7 @@ const Navbar = () => {
                       ? "bg-orange-500 text-white text-center rounded-b-lg"
                       : "text-orange-700 hover:bg-orange-100 transition"
                   }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {labels[i]}
                 </Link>
@@ -272,24 +252,32 @@ const Navbar = () => {
             }
           )}
 
-          
-          <div className="px-6 pt-3 border-t">
-            <span className="font-semibold text-orange-700">Our Initiate</span>
-            {initiatives.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  navigate(item.route);
-                  setIsMobileMenuOpen(false);
-                }}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100"
-              >
-                {item.title}
-              </button>
-            ))}
+          <div className="px-6 pt-3 border-t" ref={mobileDropdownRef}>
+            <button
+              onClick={() => setMobileDropdownOpen((prev) => !prev)}
+              className="flex justify-between items-center w-full text-orange-700 font-semibold"
+            >
+              Our Initiative <ChevronDown size={16} />
+            </button>
+            {mobileDropdownOpen && (
+              <div className="mt-2">
+                {initiatives.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      navigate(item.route);
+                      setIsMobileMenuOpen(false);
+                      setMobileDropdownOpen(false);
+                    }}
+                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100"
+                  >
+                    {item.title}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          
           <div className="px-6 py-3 border-t flex justify-between items-center">
             <span className="text-gray-700 font-medium">Language:</span>
             <select
@@ -310,3 +298,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+ 
