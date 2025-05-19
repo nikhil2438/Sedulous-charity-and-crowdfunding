@@ -30,7 +30,7 @@ const Volunteer = () => {
         
         
         <div className="mt-12 bg-gradient-to-r from-red-500 to-orange-500 text-white p-8 rounded-lg shadow-lg">
-          <h3 className="text-2xl font-bold">Partner with Us</h3>
+          <h4 className="text-2xl font-bold">Partner with Us</h4>
           <p className="mt-2 text-lg">
             We welcome collaborations with NGOs and businesses to expand our
             impact.
