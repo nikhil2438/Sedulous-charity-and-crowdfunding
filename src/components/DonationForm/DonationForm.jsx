@@ -8,7 +8,7 @@ function DonationForm() {
     Email: "",
     address: "",
     category: "",
-    language: "",
+    Language: "",
     amount: "",
   });
 
@@ -31,7 +31,7 @@ function DonationForm() {
       Email: formData.Email,
       address: formData.address,
       category: formData.category,
-      Language: formData.language,
+      Language: formData.Language,
       amount: Number(formData.amount),
     };
 
@@ -40,8 +40,13 @@ function DonationForm() {
       return;
     }
 
+    if (!/^\S+@\S+\.\S+$/.test(payload.Email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
     if (payload.amount < 250) {
-      alert("Minimun donation amount is ₹250.");
+      alert("Minimum donation amount is ₹250.");
       return;
     }
 
@@ -55,6 +60,7 @@ function DonationForm() {
       });
 
       const result = await res.json();
+      console.log("server response:", result);
 
       if (!res.ok) {
         throw new Error(result.message || "Failed to submit donation.");
@@ -63,6 +69,10 @@ function DonationForm() {
       console.log("Donation submitted:", result);
       alert("Donation info saved. Redirecting to payment...");
 
+      // ✅ Store donor data in localStorage
+      localStorage.setItem("donationData", JSON.stringify(payload));
+
+      // Navigate to payment page with amount
       navigate("/payment", {
         state: { amount: payload.amount },
       });
@@ -133,14 +143,14 @@ function DonationForm() {
           <option value="">Select Option</option>
           <option value="Medical">Healthcare</option>
           <option value="Education">Education</option>
-          <option value="Food">Food&Nutritious</option>
+          <option value="Food">Food & Nutritious</option>
           <option value="Women Empowerment">Women Empowerment</option>
           <option value="Charity">Donation For Temple</option>
         </select>
 
         <select
-          name="language"
-          value={formData.language}
+          name="Language"
+          value={formData.Language}
           onChange={handleChange}
           className="w-full p-3 border rounded-md"
           required
@@ -157,6 +167,7 @@ function DonationForm() {
           placeholder="Donation Amount (₹)"
           value={formData.amount}
           onChange={handleChange}
+          min={250}
           className="w-full p-3 border rounded-md"
           required
         />

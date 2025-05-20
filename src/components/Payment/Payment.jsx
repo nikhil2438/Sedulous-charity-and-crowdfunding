@@ -59,7 +59,7 @@ const donationData = JSON.parse(localStorage.getItem("donationData"));
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amount: amount * 100 }), // convert to paise
+        body: JSON.stringify({ amount: amount * 100 }),
       });
 
       const data = await response.json();
@@ -96,7 +96,7 @@ const donationData = JSON.parse(localStorage.getItem("donationData"));
         Email: donorData.Email,
         address: donorData.address,
         category: donorData.category,
-        Language: donorData.language, 
+        Language: donorData.Language, 
         
       }),
     
@@ -110,7 +110,7 @@ const donationData = JSON.parse(localStorage.getItem("donationData"));
               localStorage.removeItem("donationData"); 
             } else {
               alert("❌ Payment verification failed.");
-            }
+            }  
           } catch (error) {
             console.error("Verification error:", error);
             alert("Server verification failed.");

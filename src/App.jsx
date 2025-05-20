@@ -8,7 +8,7 @@ import Gallery from "./components/Pages/Gallery";
 import Events from "./components/Pages/Events";
 import Ourinitiate from "./components/Pages/Ourinitiate";
 import Education from "./components/Pages/Education";
-import Rtgs from "./components/Payment/Rtgs";
+// import Rtgs from "./components/Payment/Rtgs";
 import DonationForm from "./components/DonationForm/DonationForm";
 import FundRaise from "./components/FundRaise/FundRaise";
 import Healthcare from "./components/Pages/Healthcare";
@@ -32,7 +32,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/Our-initiative" element={<Ourinitiate />} />
         <Route path="/donationform" element={<DonationForm />} />
-        <Route path="rtgs" element={<Rtgs />} />
+        {/* <Route path="rtgs" element={<Rtgs />} /> */}
         <Route path="/education" element={<Education />} />
         <Route path="/healthcare" element={<Healthcare />} />
         <Route path="/food&nutrition" element={<FoodAndNutrition />} />
